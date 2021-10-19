@@ -1,6 +1,10 @@
 package estructuraDeDatos;
 
+import java.io.FileWriter;
 import java.util.ArrayList;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import metodos.Chequear;
 
@@ -70,6 +74,18 @@ public class Fecha {
 	public int getCantPartidos()
 	{
 		return this.cantPartidos;
+	}
+	public void generarJSON(String archivo) {
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String json = gson.toJson(this);
+		
+		try {
+			FileWriter writer = new FileWriter(archivo);
+			writer.write(json);
+			writer.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 }

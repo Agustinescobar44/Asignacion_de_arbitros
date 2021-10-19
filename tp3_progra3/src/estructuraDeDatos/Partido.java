@@ -1,17 +1,15 @@
 package estructuraDeDatos;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 import metodos.Chequear;
 
 
-public class Partido implements Serializable 
+public class Partido
 {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
 	//Cada partido tiene dos equipos y un arbitro.
 	private Equipo equipo1;
 	private Equipo equipo2;

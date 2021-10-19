@@ -2,6 +2,7 @@ package estructuraDeDatos;
 
 import java.util.Objects;
 
+
 import metodos.Chequear;
 
 public class Equipo 
@@ -57,5 +58,5 @@ public class Equipo
 		Equipo other = (Equipo) obj;
 		return Objects.equals(nombre.toLowerCase(), other.nombre.toLowerCase());
 	}
-
+	
 }

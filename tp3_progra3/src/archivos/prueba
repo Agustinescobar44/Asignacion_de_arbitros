@@ -1,0 +1,77 @@
+{
+  "partidos": [
+    {
+      "equipo1": {
+        "nombre": "El colo colo",
+        "arbitros": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cantArbitros": 10
+      },
+      "equipo2": {
+        "nombre": "El sacachispas",
+        "arbitros": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cantArbitros": 10
+      },
+      "arbitro": 0
+    }
+  ],
+  "arbitros": [
+    false
+  ],
+  "equipos": [
+    {
+      "nombre": "El colo colo",
+      "arbitros": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "cantArbitros": 10
+    },
+    {
+      "nombre": "El sacachispas",
+      "arbitros": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "cantArbitros": 10
+    }
+  ],
+  "cantPartidos": 1
+}
