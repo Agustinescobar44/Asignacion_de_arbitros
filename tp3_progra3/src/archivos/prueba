@@ -18,7 +18,7 @@
         "cantArbitros": 10
       },
       "equipo2": {
-        "nombre": "El trueno verde",
+        "nombre": "Sacachispas",
         "arbitros": [
           0,
           0,
@@ -57,7 +57,7 @@
       "cantArbitros": 10
     },
     {
-      "nombre": "El trueno verde",
+      "nombre": "Sacachispas",
       "arbitros": [
         0,
         0,
