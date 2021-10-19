@@ -1,10 +1,10 @@
-package principal;
+package metodos;
 
 public class Principal {
 
 	public static void main(String[] args) {
 
-		
+		 
 	}
 
 }
