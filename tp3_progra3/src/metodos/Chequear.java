@@ -18,7 +18,7 @@ public class Chequear {
 			throw new IllegalArgumentException("Los partidos estan entre el 0 y el " + (limite-1) + ".");
 	}
 	
-	static void equipos(Equipo[] equipos)
+	public static void equipos(Equipo[] equipos)
 	{
 		if(equipos.length % 2 == 1)
 			throw new IllegalArgumentException("El torneo solo admite una cantidad de equipos par.");
@@ -29,7 +29,7 @@ public class Chequear {
 		}
 	}
 	
-	static void fecha(int a, int limite)
+	public static void fecha(int a, int limite)
 	{
 		if (a < 0)
 			throw new IllegalArgumentException("No existen fechas negativas.");
