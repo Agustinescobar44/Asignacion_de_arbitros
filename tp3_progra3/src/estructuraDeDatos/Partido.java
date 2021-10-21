@@ -66,5 +66,18 @@ public class Partido
 		return Objects.equals(equipo1, other.equipo1) && Objects.equals(equipo2, other.equipo2);
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Partido [equipo1=");
+		builder.append(equipo1);
+		builder.append(", equipo2=");
+		builder.append(equipo2);
+		builder.append(", arbitro=");
+		builder.append(arbitro);
+		builder.append("]");
+		return builder.toString();
+	}
+	
 	
 }

@@ -1,5 +1,6 @@
 package estructuraDeDatos;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 
@@ -10,7 +11,7 @@ public class Equipo
 	private String nombre;
 	//Cada arbitro está representado por su posicion en el array y su
 	//valor representa la cantidad de veces que dirigió a este equipo.
-	int[] arbitros;
+	public int[] arbitros;
 	int cantArbitros;
 	
 	public Equipo(String nombre, int arbitros)
@@ -36,11 +37,19 @@ public class Equipo
 		this.arbitros[i]++;
 	}
 	
-	public String toString()
-	{
-		return this.nombre;
-	}
+
 	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Equipo [nombre=");
+		builder.append(nombre);
+		builder.append(", arbitros=");
+		builder.append(Arrays.toString(arbitros));
+		builder.append("]");
+		return builder.toString();
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(nombre);
