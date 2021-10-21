@@ -20,7 +20,7 @@ public class Fecha {
 		this.partidos = new ArrayList<Partido>();
 		this.arbitros = new boolean[equipos.length/2];
 		this.equipos = equipos;
-		this.generarFecha();
+		//this.generarFecha();
 		this.cantPartidos = partidos.size();
 	}
 	
@@ -41,10 +41,11 @@ public class Fecha {
 	}
 	
 	//Metodo auxiliar de generarFecha.
-	private void agregarPartido(Equipo eq1, Equipo eq2)
+	public void agregarPartido(Equipo eq1, Equipo eq2)
 	{
 		Partido partido = new Partido(eq1, eq2);
 		this.partidos.add(partido);		
+		this.cantPartidos=partidos.size();
 	}
 	
 	//Dado un partido le asigno un arbitro. Ademas, ese arbitro queda inhabilitado para dirigir otro partido
@@ -71,6 +72,10 @@ public class Fecha {
 		return this.partidos.get(partido);
 	}
 	
+	public ArrayList<Partido> getPartidos(){
+		return this.partidos;
+	}
+	
 	public int getCantPartidos()
 	{
 		return this.cantPartidos;
@@ -86,6 +91,15 @@ public class Fecha {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Fecha [partidos=");
+		builder.append(partidos);
+		builder.append("]");
+		return builder.toString();
 	}
 	
 	
