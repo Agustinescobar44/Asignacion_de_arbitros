@@ -111,6 +111,7 @@ public class AsignarArbitrosTest {
 		AsignarArbitros.asignarArbitroAPartido(partido,new HashSet<Integer>());
 		
 		assertEquals(0, partido.getArbitro());
+
 		
 	}
 
