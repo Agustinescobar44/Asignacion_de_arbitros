@@ -1,7 +1,11 @@
 package metodos;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.HashSet;
 import java.util.Set;
+
+import com.google.gson.Gson;
 
 import estructuraDeDatos.Equipo;
 import estructuraDeDatos.Fecha;
@@ -10,7 +14,10 @@ import estructuraDeDatos.Partido;
 public class AsignarArbitros {
 	
 	Fecha[] fechas = null;
-	static Set<Integer> arbitrosMarcados = new HashSet<Integer>();
+	static Set<Integer> arbitrosMarcados;
+	
+	
+	
 	
 
 	public static void asignarArbitros(Fecha f) {
@@ -42,5 +49,19 @@ public class AsignarArbitros {
 
 	}
 	
+	public  static Fecha leerFechaDeJson(String archivo) {
+		
+		Gson gson = new Gson();
+		Fecha ret = null;
+		
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(archivo));
+			ret = gson.fromJson(br, Fecha.class);
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return ret;
+	}
 	
 }
