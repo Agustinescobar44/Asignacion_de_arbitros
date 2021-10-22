@@ -19,6 +19,11 @@ public class AsignarArbitros {
 			asignarArbitrosAFecha(t.getFecha(i));
 		}
 	}
+	public static void asignarArbitros(Torneo t) {
+		for (int i = 0; i < t.getCantFechas();i++) {
+			asignarArbitrosAFecha(t.getFecha(i));
+		}
+	}
 
 	//le asigno arbitro a cada partido de la fecha
 	public static void asignarArbitrosAFecha(Fecha f) {
