@@ -24,7 +24,7 @@ public class Fecha {
 		this.cantPartidos = partidos.size();
 	}
 	
-	public void generarFecha()
+	private void generarFecha()
 	{
 		int i = 0;
 		int j = equipos.length - 1;
