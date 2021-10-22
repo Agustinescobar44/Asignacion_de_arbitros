@@ -12,7 +12,7 @@ import estructuraDeDatos.Torneo;
 
 public class Jsons {
 
-	public static Torneo leerJson(String archivo) {
+	public static Torneo leerTorneoDeJson(String archivo) {
 		Gson gson= new Gson();
 		Torneo ret = null; 
 	
