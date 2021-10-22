@@ -1,10 +1,5 @@
 package estructuraDeDatos;
 
-import java.io.FileWriter;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import metodos.Chequear;
 
 public class Torneo 
