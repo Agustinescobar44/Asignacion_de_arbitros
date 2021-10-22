@@ -24,7 +24,7 @@ public class Fecha {
 		this.cantPartidos = partidos.size();
 	}
 	
-	private void generarFecha()
+	public void generarFecha()
 	{
 		int i = 0;
 		int j = equipos.length - 1;
@@ -33,7 +33,7 @@ public class Fecha {
 		{
 			//Aplico el algoritmo mostrado en: https://es.wikipedia.org/wiki/Sistema_de_todos_contra_todos
 			this.agregarPartido(equipos[i], equipos[j]);
-			System.out.println(equipos[i] + " vs " + equipos[j]); //Solo para probar en main.
+		//	System.out.println(equipos[i] + " vs " + equipos[j]); //Solo para probar en main.
 			i++;
 			j--;
 
