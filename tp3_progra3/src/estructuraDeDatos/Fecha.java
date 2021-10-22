@@ -20,7 +20,7 @@ public class Fecha {
 		this.partidos = new ArrayList<Partido>();
 		this.arbitros = new boolean[equipos.length/2];
 		this.equipos = equipos;
-		//this.generarFecha();
+		this.generarFecha();
 		this.cantPartidos = partidos.size();
 	}
 	
@@ -45,7 +45,6 @@ public class Fecha {
 	{
 		Partido partido = new Partido(eq1, eq2);
 		this.partidos.add(partido);		
-		this.cantPartidos=partidos.size();
 	}
 	
 	//Dado un partido le asigno un arbitro. Ademas, ese arbitro queda inhabilitado para dirigir otro partido
