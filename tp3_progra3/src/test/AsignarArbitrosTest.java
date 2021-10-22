@@ -15,7 +15,7 @@ import metodos.AsignarArbitros;
 public class AsignarArbitrosTest {
 
 	@Test  
-	public void testAsignarArbitros() {
+	public void testAsignarArbitros4Equipos() {
 		Equipo a = new Equipo("Boca", 2);
 		Equipo b = new Equipo("river", 2);
 		Equipo c = new Equipo("Independiente", 2);
@@ -23,35 +23,39 @@ public class AsignarArbitrosTest {
 		Equipo[] equipos = {a,b,c,d};
 		
 		Fecha f = new Fecha(equipos);
-		f.agregarPartido(a, b);
-		f.agregarPartido(c, d);
 		AsignarArbitros.asignarArbitrosAFecha(f);
-		assertEquals(0, f.getPartido(0).getArbitro());
-		assertEquals(1, f.getPartido(1).getArbitro());
-		System.out.println(f.getPartido(0));
-		System.out.println(f.getPartido(1));
-		
+		System.out.println(f.getPartidos());
 		System.out.println("-------------");
 		
-		f = new Fecha(equipos);
-		f.agregarPartido(a,c);
-		f.agregarPartido(b,d);
 		AsignarArbitros.asignarArbitrosAFecha(f);
-		assertEquals(0, f.getPartido(0).getArbitro());
-		assertEquals(1, f.getPartido(1).getArbitro());
-		System.out.println(f.getPartido(0));
-		System.out.println(f.getPartido(1));
+		System.out.println(f.getPartidos());
 		System.out.println("-------------");
 		
-		f = new Fecha(equipos);
-		f.agregarPartido(a,d);
-		f.agregarPartido(b,c);
 		AsignarArbitros.asignarArbitrosAFecha(f);
-		System.out.println(f.getPartido(0));
-		System.out.println(f.getPartido(1));
-		assertEquals(0, f.getPartido(0).getArbitro());
-		assertEquals(1, f.getPartido(1).getArbitro());
+		System.out.println(f.getPartidos());
+	}
+	
+	@Test  
+	public void testAsignarArbitros6Equipos() {
+		Equipo a = new Equipo("Boca", 3);
+		Equipo b = new Equipo("river", 3);
+		Equipo c = new Equipo("Independiente", 3);
+		Equipo d = new Equipo("SanLorenzso", 3);
+		Equipo e = new Equipo("Independiente", 3);
+		Equipo f = new Equipo("SanLorenzso",3);
+		Equipo[] equipos = {a,b,c,d,e,f};
 		
+		Fecha fecha = new Fecha(equipos);
+		AsignarArbitros.asignarArbitrosAFecha(fecha);
+		System.out.println(fecha.getPartidos());
+		System.out.println("-------------");
+		
+		AsignarArbitros.asignarArbitrosAFecha(fecha);
+		System.out.println(fecha.getPartidos());
+		System.out.println("-------------");
+		
+		AsignarArbitros.asignarArbitrosAFecha(fecha);
+		System.out.println(fecha.getPartidos());
 	}
 
 	@Test 
