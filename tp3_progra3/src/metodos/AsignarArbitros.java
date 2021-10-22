@@ -6,26 +6,31 @@ import java.util.Set;
 import estructuraDeDatos.Equipo;
 import estructuraDeDatos.Fecha;
 import estructuraDeDatos.Partido;
+import estructuraDeDatos.Torneo;
 
 public class AsignarArbitros {
 	
-	static Fecha[] fechas = null;
 	static Set<Integer> arbitrosMarcados;
 	
+	// Asigno los arbitos para cada fecha del torneo
 	public static void asignarArbitros(String path) {
-		fechas = Jsons.leerFechasDeJson(path);
-		for(Fecha fecha : fechas) {
-			asignarArbitroAFecha(fecha);
+		Torneo t = Jsons.leerTorneoDeJson(path);
+		for (int i = 0; i < t.getCantFechas();i++) {
+			asignarArbitrosAFecha(t.getFecha(i));
 		}
 	}
 
-	public static void asignarArbitroAFecha(Fecha f) {
+	//le asigno arbitro a cada partido de la fecha
+	public static void asignarArbitrosAFecha(Fecha f) {
 		arbitrosMarcados = new HashSet<Integer>();
 		for (Partido partido : f.getPartidos()) {
 			asignarArbitroAPartido(partido,arbitrosMarcados);
 		}
 	}
 	
+	/*le asigno un arbitro al partido, que no haya sido marcado antes
+		aca es donde va la logica y lo que hay que pensar en grupo 
+	*/
 	public static void asignarArbitroAPartido(Partido partido,Set<Integer> arbitrosMarcados) {
 		Equipo equipoa = partido.getEquipo1();
 		Equipo equipob = partido.getEquipo2();

@@ -25,7 +25,7 @@ public class AsignarArbitrosTest {
 		Fecha f = new Fecha(equipos);
 		f.agregarPartido(a, b);
 		f.agregarPartido(c, d);
-		AsignarArbitros.asignarArbitroAFecha(f);
+		AsignarArbitros.asignarArbitrosAFecha(f);
 		assertEquals(0, f.getPartido(0).getArbitro());
 		assertEquals(1, f.getPartido(1).getArbitro());
 		System.out.println(f.getPartido(0));
@@ -36,7 +36,7 @@ public class AsignarArbitrosTest {
 		f = new Fecha(equipos);
 		f.agregarPartido(a,c);
 		f.agregarPartido(b,d);
-		AsignarArbitros.asignarArbitroAFecha(f);
+		AsignarArbitros.asignarArbitrosAFecha(f);
 		assertEquals(0, f.getPartido(0).getArbitro());
 		assertEquals(1, f.getPartido(1).getArbitro());
 		System.out.println(f.getPartido(0));
@@ -46,7 +46,7 @@ public class AsignarArbitrosTest {
 		f = new Fecha(equipos);
 		f.agregarPartido(a,d);
 		f.agregarPartido(b,c);
-		AsignarArbitros.asignarArbitroAFecha(f);
+		AsignarArbitros.asignarArbitrosAFecha(f);
 		System.out.println(f.getPartido(0));
 		System.out.println(f.getPartido(1));
 		assertEquals(0, f.getPartido(0).getArbitro());
