@@ -45,11 +45,11 @@ public class Equipo
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Equipo [nombre=");
+		builder.append("|nombre=");
 		builder.append(nombre);
 		builder.append(", arbitros=");
 		builder.append(Arrays.toString(arbitros));
-		builder.append("]");
+		builder.append("|");
 		return builder.toString();
 	}
 
