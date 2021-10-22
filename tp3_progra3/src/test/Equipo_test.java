@@ -13,7 +13,7 @@ public class Equipo_test {
 	{
 		Equipo equipo = new Equipo("San Lorenzo", 10);
 		
-		assertEquals(equipo.toString(), "San Lorenzo");
+		assertEquals(equipo.getNombre(), "San Lorenzo");
 		assertEquals(equipo.partidosDirigidoPor(9), 0);
 	}
 	

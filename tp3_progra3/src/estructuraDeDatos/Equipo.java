@@ -37,6 +37,9 @@ public class Equipo
 		this.arbitros[i]++;
 	}
 	
+	public String getNombre() {
+		return this.nombre+"";
+	}
 
 	
 	@Override
