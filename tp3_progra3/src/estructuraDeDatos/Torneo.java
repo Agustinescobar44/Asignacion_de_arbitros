@@ -59,17 +59,4 @@ public class Torneo
 		Chequear.fecha(i, this.cantEquipos - 1);
 		return this.fixture[i];
 	}
-
-	public void generarJSON(String archivo) {
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String json = gson.toJson(this);
-		
-		try {
-			FileWriter writer = new FileWriter(archivo);
-			writer.write(json);
-			writer.close();
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-	}
 }

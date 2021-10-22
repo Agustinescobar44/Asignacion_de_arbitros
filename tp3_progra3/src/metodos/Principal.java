@@ -1,11 +1,7 @@
 package metodos;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import com.google.gson.Gson;
 
 import estructuraDeDatos.Equipo;
-import estructuraDeDatos.Fecha;
 import estructuraDeDatos.Torneo;
 
 public class Principal {
@@ -29,23 +25,10 @@ public class Principal {
 		equipos[5] = f;
 		
 		Torneo t = new Torneo(equipos);
-		t.generarJSON(path);
+		Jsons.generarJSON(path,t);
 		
 	}
 
-	public static Torneo leerFecha() {
-		Gson gson= new Gson();
-		Torneo ret = null; 
 	
-		try {
-			BufferedReader br = new BufferedReader(new FileReader(path));
-			ret = gson.fromJson(br, Torneo.class);
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		
-		return ret;
-	
-	}
 	
 }
