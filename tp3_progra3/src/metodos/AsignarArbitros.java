@@ -5,22 +5,23 @@ import java.io.FileReader;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.google.gson.Gson;
-
 import estructuraDeDatos.Equipo;
 import estructuraDeDatos.Fecha;
 import estructuraDeDatos.Partido;
 
 public class AsignarArbitros {
 	
-	Fecha[] fechas = null;
+	static Fecha[] fechas = null;
 	static Set<Integer> arbitrosMarcados;
 	
-	
-	
-	
+	public static void asignarArbitros(String path) {
+		fechas = Jsons.leerFechasDeJson(path);
+		for(Fecha fecha : fechas) {
+			asignarArbitroAFecha(fecha);
+		}
+	}
 
-	public static void asignarArbitros(Fecha f) {
+	public static void asignarArbitroAFecha(Fecha f) {
 		arbitrosMarcados = new HashSet<Integer>();
 		for (Partido partido : f.getPartidos()) {
 			asignarArbitroAPartido(partido,arbitrosMarcados);
@@ -49,19 +50,6 @@ public class AsignarArbitros {
 
 	}
 	
-	public  static Fecha leerFechaDeJson(String archivo) {
-		
-		Gson gson = new Gson();
-		Fecha ret = null;
-		
-		try {
-			BufferedReader br = new BufferedReader(new FileReader(archivo));
-			ret = gson.fromJson(br, Fecha.class);
-			
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		return ret;
-	}
+	
 	
 }
