@@ -49,56 +49,61 @@ public class Main {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setLocationRelativeTo(null); //centra la ventana
 		
 		int anchoFrame=400;
 		int alto = 400;
 		
 		frame.setSize(new Dimension(anchoFrame,alto));
 		
-		centrarVentana(anchoFrame, alto, frame);
 		
 		
-		JLabel lblFechaDelCalendario = new JLabel("Fecha del calendario de partidos:");
+		JLabel lblFechaDelCalendario = new JLabel("Fechas del calendario de partidos:");
 		lblFechaDelCalendario.setBounds(12, 12, 423, 15);
 		frame.getContentPane().add(lblFechaDelCalendario);
 		
 		JPanel panelFechas = new JPanel();
-		panelFechas.setBounds(12, 39, 423, 225);
-		frame.getContentPane().add(panelFechas);
+		panelFechas.setBounds(12, 39, 325, 225);
 		panelFechas.setLayout(null);
-		panelFechas.setPreferredSize(new Dimension(380,200));
 		
 		final JPanel panelPartidos = new JPanel();
-		panelFechas.setBounds(12, 39, 423, 225);
-		frame.getContentPane().add(panelFechas);
-		panelFechas.setLayout(null);
-		panelFechas.setPreferredSize(new Dimension(380,200));
-		
-		final JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(12, 39, 380, 300);
-		scrollPane.setViewportView(panelFechas);
-		frame.add(scrollPane);
+		panelPartidos.setBounds(12, 39, 325, 225);
+		panelPartidos.setLayout(null);
+		panelPartidos.setPreferredSize(new Dimension(380,200));
 		
 		Torneo torneo=Principal.devolverTorneo();
 		
+		//agrego botones con fecha
 		int distanciaY=12;
+		int altoDelPanelFechas=200;
 		for(int i=0; i<torneo.getCantFechas(); i++) {
 			JButton btnNewButton = new JButton("Fecha " + i);
 			btnNewButton.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					scrollPane.setViewportView(panelPartidos);
+					cambiarVista(panelPartidos);
 				}
 			});
+			
+			if (i>6) {
+				altoDelPanelFechas+=90;
+			}
+			panelFechas.add(btnNewButton);
 			btnNewButton.setBounds(39, distanciaY, 117, 25);
 			distanciaY+=40;
-			panelFechas.add(btnNewButton);
 		}
+		
+		panelFechas.setPreferredSize(new Dimension(360,altoDelPanelFechas));
+		
+		final JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(12, 39, 380, 300);
+		scrollPane.setViewportView(panelFechas);
+		
+		frame.getContentPane().add(scrollPane);
 	}
 	
-	public void centrarVentana(int ancho , int alto , JFrame frame) {
-		Dimension tamanioventana = Toolkit.getDefaultToolkit().getScreenSize();
-		frame.setBounds((tamanioventana.width/2)-(ancho/2), (tamanioventana.height/2)-(alto/2), ancho, alto);
+	private void cambiarVista(JPanel nuevo) {
+		frame.getContentPane().add(nuevo);
 	}
 	
 }
