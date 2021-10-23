@@ -17,6 +17,7 @@ import javax.swing.JScrollPane;
 public class Main {
 
 	private JFrame frame;
+	final JScrollPane scrollPane;
 
 	/**
 	 * Launch the application.
@@ -38,6 +39,7 @@ public class Main {
 	 * Create the application.
 	 */
 	public Main() {
+		this.scrollPane = new JScrollPane();
 		initialize();
 	}
 
@@ -69,7 +71,7 @@ public class Main {
 		final JPanel panelPartidos = new JPanel();
 		panelPartidos.setBounds(12, 39, 325, 225);
 		panelPartidos.setLayout(null);
-		panelPartidos.setPreferredSize(new Dimension(380,200));
+		panelPartidos.setPreferredSize(new Dimension(370,200));
 		
 		Torneo torneo=Principal.devolverTorneo();
 		
@@ -95,7 +97,6 @@ public class Main {
 		
 		panelFechas.setPreferredSize(new Dimension(360,altoDelPanelFechas));
 		
-		final JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(12, 39, 380, 300);
 		scrollPane.setViewportView(panelFechas);
 		
@@ -103,7 +104,7 @@ public class Main {
 	}
 	
 	private void cambiarVista(JPanel nuevo) {
-		frame.getContentPane().add(nuevo);
+		scrollPane.setViewportView(nuevo);
 	}
 	
 }
