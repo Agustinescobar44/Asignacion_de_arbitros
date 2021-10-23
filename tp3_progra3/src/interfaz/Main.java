@@ -2,16 +2,14 @@ package interfaz;
 
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
-import javax.sql.rowset.BaseRowSet;
 import javax.swing.JButton;
 import estructuraDeDatos.Torneo;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 
 public class Main {
@@ -50,6 +48,14 @@ public class Main {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		int anchoFrame=400;
+		int alto = 400;
+		
+		frame.setSize(new Dimension(anchoFrame,alto));
+		
+		centrarVentana(anchoFrame, alto, frame);
+		
+		
 		JLabel lblFechaDelCalendario = new JLabel("Fecha del calendario de partidos:");
 		lblFechaDelCalendario.setBounds(12, 12, 423, 15);
 		frame.getContentPane().add(lblFechaDelCalendario);
@@ -60,12 +66,12 @@ public class Main {
 		panel.setBounds(12, 39, 423, 225);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
-		panel.setPreferredSize(new Dimension(400,400));
+		panel.setPreferredSize(new Dimension(380,200));
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(408, 12, 3, 3);
-		panel.add(scrollPane);
-		
+		scrollPane.setBounds(12, 39, 380, 300);
+		scrollPane.setViewportView(panel);
+		frame.add(scrollPane);
 		
 		Torneo torneo=Principal.devolverTorneo();
 		int distanciaY=12;
@@ -75,11 +81,11 @@ public class Main {
 			distanciaY+=40;
 			panel.add(btnNewButton);
 		}
-		
-		
-		
-		
-		
-		
 	}
+	
+	public void centrarVentana(int ancho , int alto , JFrame frame) {
+		Dimension tamanioventana = Toolkit.getDefaultToolkit().getScreenSize();
+		frame.setBounds((tamanioventana.width/2)-(ancho/2), (tamanioventana.height/2)-(alto/2), ancho, alto);
+	}
+	
 }
