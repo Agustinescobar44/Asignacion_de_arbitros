@@ -3,6 +3,8 @@ package interfaz;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
@@ -60,26 +62,37 @@ public class Main {
 		lblFechaDelCalendario.setBounds(12, 12, 423, 15);
 		frame.getContentPane().add(lblFechaDelCalendario);
 		
+		JPanel panelFechas = new JPanel();
+		panelFechas.setBounds(12, 39, 423, 225);
+		frame.getContentPane().add(panelFechas);
+		panelFechas.setLayout(null);
+		panelFechas.setPreferredSize(new Dimension(380,200));
 		
+		final JPanel panelPartidos = new JPanel();
+		panelFechas.setBounds(12, 39, 423, 225);
+		frame.getContentPane().add(panelFechas);
+		panelFechas.setLayout(null);
+		panelFechas.setPreferredSize(new Dimension(380,200));
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(12, 39, 423, 225);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);
-		panel.setPreferredSize(new Dimension(380,200));
-		
-		JScrollPane scrollPane = new JScrollPane();
+		final JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(12, 39, 380, 300);
-		scrollPane.setViewportView(panel);
+		scrollPane.setViewportView(panelFechas);
 		frame.add(scrollPane);
 		
 		Torneo torneo=Principal.devolverTorneo();
+		
 		int distanciaY=12;
 		for(int i=0; i<torneo.getCantFechas(); i++) {
 			JButton btnNewButton = new JButton("Fecha " + i);
+			btnNewButton.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					scrollPane.setViewportView(panelPartidos);
+				}
+			});
 			btnNewButton.setBounds(39, distanciaY, 117, 25);
 			distanciaY+=40;
-			panel.add(btnNewButton);
+			panelFechas.add(btnNewButton);
 		}
 	}
 	
