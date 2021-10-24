@@ -91,6 +91,10 @@ public class Fecha {
 			System.out.println(e);
 		}
 	}
+	
+	public boolean arbitroOcupado(int i) {
+		return this.arbitros[i];
+	}
 
 	@Override
 	public String toString() {
