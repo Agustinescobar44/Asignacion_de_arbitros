@@ -50,6 +50,7 @@ public class Jsons {
 			FileWriter writer = new FileWriter(archivo);
 			writer.write(json);
 			writer.close();
+			System.out.println("Json generado!");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
