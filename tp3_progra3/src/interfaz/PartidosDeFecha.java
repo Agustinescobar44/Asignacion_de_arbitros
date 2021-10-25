@@ -33,7 +33,7 @@ public class PartidosDeFecha {
 	 * @param ventanaPrincipal 
 	 * @param nombres 
 	 */
-	private void initialize(Fecha fecha, JFrame ventanaPrincipal, String[] nombres) {
+	private void initialize(Fecha fecha, final JFrame ventanaPrincipal, String[] nombres) {
 		int anchoDelFrame = 800;
 		int altoDelFrame = 600;
 		frame = new JFrame();
@@ -73,7 +73,7 @@ public class PartidosDeFecha {
 			asignarData(fecha, data , nombres);
 		}
 		
-		String[] nombreDeColumnas = {"Equipo 1", "Equipo 2" , "Arbitro nº"};
+		String[] nombreDeColumnas = {"Equipo 1", "Equipo 2" , "Arbitro nï¿½"};
 		
 		table = new JTable(data,nombreDeColumnas);
 		scrollPane.setViewportView(table);

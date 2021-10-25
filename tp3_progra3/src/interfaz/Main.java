@@ -54,7 +54,7 @@ public class Main {
 	private void initialize() {
 		Torneo torneo=Principal.devolverTorneo();
 		String[] nombres = new String[torneo.getCantFechas()/2+1];
-		ArrayList<JComponent> asignacionDenombres = new ArrayList<>();
+		final ArrayList<JComponent> asignacionDenombres = new ArrayList<>();
 		
 		int anchoFrame=800;
 		int alto = 600;
@@ -137,7 +137,7 @@ public class Main {
 		
 		int posicionEnY = 5;
 		for (int i = 0; i < torneo.getCantFechas()/2+1; i++) {
-			JLabel lblNewLabel = new JLabel("Nombre para aribtro nº" + i);
+			JLabel lblNewLabel = new JLabel("Nombre para aribtro nï¿½" + i);
 			lblNewLabel.setBounds(59, posicionEnY, 60, 14);
 			panelDeAsignacion.add(lblNewLabel);
 			
@@ -156,7 +156,7 @@ public class Main {
 		
 	}
 
-	private void agregarActionListener(Torneo torneo, int i, JButton btnNewButton , String[] nombres) {
+	private void agregarActionListener(final Torneo torneo, final int i, JButton btnNewButton , final String[] nombres) {
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
