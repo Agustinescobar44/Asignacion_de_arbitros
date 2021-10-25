@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import estructuraDeDatos.Equipo;
 import estructuraDeDatos.Fecha;
 import estructuraDeDatos.Torneo;
 
@@ -17,7 +18,7 @@ public class Jsons {
 		Torneo ret = null; 
 	
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(archivo));
+			BufferedReader br = new BufferedReader(new FileReader("tp3_progra3\\src\\archivos\\"+archivo));
 			ret = gson.fromJson(br, Torneo.class);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -33,8 +34,22 @@ public class Jsons {
 		Fecha[] ret = null;
 		
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(archivo));
+			BufferedReader br = new BufferedReader(new FileReader("tp3_progra3\\src\\archivos\\"+archivo));
 			ret = gson.fromJson(br, Fecha[].class);
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return ret;
+	}
+	public  static Equipo leerEquipoDeJson(String archivo) {
+		
+		Gson gson = new Gson();
+		Equipo ret = null;
+		
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("tp3_progra3\\src\\archivos\\"+archivo));
+			ret = gson.fromJson(br, Equipo.class);
 			
 		} catch (Exception e) {
 			System.out.println(e);
@@ -47,10 +62,33 @@ public class Jsons {
 		String json = gson.toJson(t);
 		
 		try {
-			FileWriter writer = new FileWriter(archivo);
+			FileWriter writer = new FileWriter("tp3_progra3\\src\\archivos\\"+archivo);
 			writer.write(json);
 			writer.close();
-			System.out.println("Json generado!");
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	public static void generarJSON(String archivo , Fecha f) {
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String json = gson.toJson(f);
+		
+		try {
+			FileWriter writer = new FileWriter("tp3_progra3\\src\\archivos\\"+archivo);
+			writer.write(json);
+			writer.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	public static void generarJSON(String archivo , Equipo equipo) {
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String json = gson.toJson(equipo);
+		
+		try {
+			FileWriter writer = new FileWriter("tp3_progra3\\src\\archivos\\"+archivo);
+			writer.write(json);
+			writer.close();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
