@@ -13,12 +13,15 @@ import estructuraDeDatos.Torneo;
 
 public class Jsons {
 
-	public static Torneo leerTorneoDeJson(String archivo) {
+	
+	private static final String path = "tp3_progra3\\src\\archivos\\";
+	
+	public static Torneo leerTorneoDeJson(String nombre) {
 		Gson gson= new Gson();
 		Torneo ret = null; 
 	
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("tp3_progra3\\src\\archivos\\"+archivo));
+			BufferedReader br = new BufferedReader(new FileReader(path+nombre));
 			ret = gson.fromJson(br, Torneo.class);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -28,13 +31,13 @@ public class Jsons {
 	
 	}
 	
-	public  static Fecha[] leerFechasDeJson(String archivo) {
+	public  static Fecha[] leerFechasDeJson(String nombre) {
 		
 		Gson gson = new Gson();
 		Fecha[] ret = null;
 		
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("tp3_progra3\\src\\archivos\\"+archivo));
+			BufferedReader br = new BufferedReader(new FileReader(path+nombre));
 			ret = gson.fromJson(br, Fecha[].class);
 			
 		} catch (Exception e) {
@@ -42,14 +45,14 @@ public class Jsons {
 		}
 		return ret;
 	}
-	public  static Equipo leerEquipoDeJson(String archivo) {
+	public  static Equipo[] leerEquipoDeJson(String nombre) {
 		
 		Gson gson = new Gson();
-		Equipo ret = null;
+		Equipo[] ret = null;
 		
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("tp3_progra3\\src\\archivos\\"+archivo));
-			ret = gson.fromJson(br, Equipo.class);
+			BufferedReader br = new BufferedReader(new FileReader(path+nombre));
+			ret = gson.fromJson(br, Equipo[].class);
 			
 		} catch (Exception e) {
 			System.out.println(e);
@@ -57,36 +60,36 @@ public class Jsons {
 		return ret;
 	}
 	
-	public static void generarJSON(String archivo , Torneo t) {
+	public static void generarJSON(String nombre , Torneo t) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(t);
 		
 		try {
-			FileWriter writer = new FileWriter("tp3_progra3\\src\\archivos\\"+archivo);
+			FileWriter writer = new FileWriter(path+nombre);
 			writer.write(json);
 			writer.close();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
-	public static void generarJSON(String archivo , Fecha f) {
+	public static void generarJSON(String nombre , Fecha f) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(f);
 		
 		try {
-			FileWriter writer = new FileWriter("tp3_progra3\\src\\archivos\\"+archivo);
+			FileWriter writer = new FileWriter(path+nombre);
 			writer.write(json);
 			writer.close();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
-	public static void generarJSON(String archivo , Equipo equipo) {
+	public static void generarJSON(String nombre , Equipo[] equipo) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(equipo);
 		
 		try {
-			FileWriter writer = new FileWriter("tp3_progra3\\src\\archivos\\"+archivo);
+			FileWriter writer = new FileWriter(path+nombre);
 			writer.write(json);
 			writer.close();
 		} catch (Exception e) {
