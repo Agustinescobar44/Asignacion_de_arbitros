@@ -54,7 +54,7 @@ public class Main {
 	private void initialize() {
 		Torneo torneo=Principal.devolverTorneo();
 		String[] nombres = new String[torneo.getCantFechas()/2+1];
-		ArrayList<JComponent> asignacionDenombres = new ArrayList<>();
+		final ArrayList<JComponent> asignacionDenombres = new ArrayList<>();
 		
 		int anchoFrame=800;
 		int alto = 600;
@@ -80,12 +80,7 @@ public class Main {
 		JPanel panelFechas = new JPanel();
 		panelFechas.setBounds(12, 39, 325, 225);
 		panelFechas.setLayout(null);
-		
-		final JPanel panelPartidos = new JPanel();
-		panelPartidos.setBounds(12, 39, 325, 225);
-		panelPartidos.setLayout(null);
-		panelPartidos.setPreferredSize(new Dimension(370,200));
-		
+				
 		int anchoDelScroll = anchoFrame/2;
 		int altoDelScroll = alto/2;
 		scrollPane.setBounds(12, 39, anchoDelScroll, altoDelScroll);
@@ -94,20 +89,20 @@ public class Main {
 		
 		//agrego botones con fecha
 		int distanciaY=12;
-		int altoDelPanelFechas=200;
+		int alturaDelPanelFechas=200;
 		for(int i=0; i<torneo.getCantFechas(); i++) {
 			JButton btnNewButton = new JButton("Fecha " + (i+1));
 			agregarActionListener(torneo, i, btnNewButton,nombres);
 			
 			if (i>6) {
-				altoDelPanelFechas+=90;
+				alturaDelPanelFechas+=90;
 			}
 			panelFechas.add(btnNewButton);
 			btnNewButton.setBounds(anchoDelScroll/4-10, distanciaY, anchoDelScroll/2, 25);
 			distanciaY+=40;
 		}
 		
-		panelFechas.setPreferredSize(new Dimension(360,altoDelPanelFechas));
+		panelFechas.setPreferredSize(new Dimension(360,alturaDelPanelFechas));
 		
 		//Asignacion de arbitros------------------------
 		
@@ -136,8 +131,9 @@ public class Main {
 		asignacionDenombres.add(panelDeAsignacion);
 		
 		int posicionEnY = 5;
+		int alturaPanelAsignacion=300;
 		for (int i = 0; i < torneo.getCantFechas()/2+1; i++) {
-			JLabel lblNewLabel = new JLabel("Nombre para aribtro nº" + i);
+			JLabel lblNewLabel = new JLabel("Nombre para aribtro nï¿½" + i);
 			lblNewLabel.setBounds(59, posicionEnY, 60, 14);
 			panelDeAsignacion.add(lblNewLabel);
 			
@@ -146,6 +142,9 @@ public class Main {
 			panelDeAsignacion.add(textField);
 			textField.setColumns(10);
 			
+			if(i>15) {
+				alturaPanelAsignacion+=40;
+			}
 			posicionEnY += 30;
 			
 			asignacionDenombres.add(lblNewLabel);
@@ -153,10 +152,10 @@ public class Main {
 		}
 		
 		ocultarComponentes(asignacionDenombres);
-		
+		panelDeAsignacion.setPreferredSize(new Dimension(254,alturaPanelAsignacion));
 	}
 
-	private void agregarActionListener(Torneo torneo, int i, JButton btnNewButton , String[] nombres) {
+	private void agregarActionListener(final Torneo torneo, final int i, JButton btnNewButton , final String[] nombres) {
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
