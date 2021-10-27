@@ -60,11 +60,13 @@ public class Torneo
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-
-		builder.append(", fixture=");
 		builder.append(Arrays.toString(fixture));
 
 		return builder.toString();
+	}
+
+	public Fecha[] getFechas() {
+		return this.fixture;
 	}
 	
 }
