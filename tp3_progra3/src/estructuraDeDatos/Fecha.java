@@ -99,9 +99,9 @@ public class Fecha {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Fecha [partidos=");
+		builder.append("Fecha ");
 		builder.append(partidos);
-		builder.append("]");
+		builder.append("\n");
 		return builder.toString();
 	}
 	
