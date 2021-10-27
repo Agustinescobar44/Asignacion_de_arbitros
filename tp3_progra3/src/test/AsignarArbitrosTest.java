@@ -11,29 +11,34 @@ import estructuraDeDatos.Fecha;
 import estructuraDeDatos.Partido;
 import estructuraDeDatos.Torneo;
 import metodos.AsignarArbitros;
+import metodos.Jsons;
 
 public class AsignarArbitrosTest {
 
 	@Test
-	public void testAsignarArbitrosATorneo() {
-		Equipo a = new Equipo("Boca", 2);
-		Equipo b = new Equipo("river", 2);
-		Equipo c = new Equipo("Independiente", 2);
-		Equipo d = new Equipo("SanLorenzso", 2);
-		Equipo[] equipos = {a,b,c,d};
-		
+	public void testAsignarArbitrosATorneoDe4Equipos() {
+		Equipo[] equipos = crear4Equipos();
+		Torneo torneo = new Torneo(equipos);
+		AsignarArbitros.asignarArbitros(torneo);
+	}
+	@Test
+	public void testAsignarArbitrosATorneoDe4EquiposDesdeJson() {
+		Equipo[] equipos= Jsons.leerEquipoDeJson("equipos prueba"); 
+		Torneo torneo = new Torneo(equipos);
+		AsignarArbitros.asignarArbitros(torneo);
+	}
+	@Test 
+	public void testAsignarArbitrosATorneoDe6Equipos() {
+		Equipo[] equipos = crear6Equipos();
 		Torneo torneo = new Torneo(equipos);
 		AsignarArbitros.asignarArbitros(torneo);
 	}
 	
 	
+	
 	@Test  
 	public void testAsignarArbitrosAFecha4Equipos() {
-		Equipo a = new Equipo("Boca", 2);
-		Equipo b = new Equipo("river", 2);
-		Equipo c = new Equipo("Independiente", 2);
-		Equipo d = new Equipo("SanLorenzso", 2);
-		Equipo[] equipos = {a,b,c,d};
+		Equipo[] equipos = crear4Equipos();
 		
 		Fecha f = new Fecha(equipos);
 		AsignarArbitros.asignarArbitrosAFecha(f);
@@ -44,13 +49,7 @@ public class AsignarArbitrosTest {
 	
 	@Test  
 	public void testAsignarArbitrosAFecha6Equipos() {
-		Equipo a = new Equipo("Boca", 3);
-		Equipo b = new Equipo("river", 3);
-		Equipo c = new Equipo("Independiente", 3);
-		Equipo d = new Equipo("SanLorenzso", 3);
-		Equipo e = new Equipo("Independiente", 3);
-		Equipo f = new Equipo("SanLorenzso",3);
-		Equipo[] equipos = {a,b,c,d,e,f};
+		Equipo[] equipos = crear6Equipos();
 		
 		Fecha fecha = new Fecha(equipos);
 		AsignarArbitros.asignarArbitrosAFecha(fecha);
@@ -121,4 +120,22 @@ public class AsignarArbitrosTest {
 		
 	}
 
+	private Equipo[] crear6Equipos() {
+		Equipo a = new Equipo("Boca", 3);
+		Equipo b = new Equipo("river", 3);
+		Equipo c = new Equipo("Independiente", 3);
+		Equipo d = new Equipo("SanLorenzso", 3);
+		Equipo e = new Equipo("Sacachispas", 3);
+		Equipo f = new Equipo("El trueno verde", 3);
+		Equipo[] equipos = {a,b,c,d,e,f};
+		return equipos;
+	}
+	private Equipo[] crear4Equipos() {
+		Equipo a = new Equipo("Boca", 2);
+		Equipo b = new Equipo("river", 2);
+		Equipo c = new Equipo("Independiente", 2);
+		Equipo d = new Equipo("SanLorenzso", 2);
+		Equipo[] equipos = {a,b,c,d};
+		return equipos;
+	}
 }
