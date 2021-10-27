@@ -69,13 +69,13 @@ public class Partido
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Partido |equipo1=");
+		builder.append("Partido |");
 		builder.append(equipo1);
-		builder.append(", equipo2=");
+		builder.append(" VS ");
 		builder.append(equipo2);
-		builder.append(", arbitro=");
+		builder.append(" arbitro=");
 		builder.append(arbitro);
-		builder.append("|");
+		builder.append("|\n");
 		return builder.toString();
 	}
 	
