@@ -8,10 +8,10 @@ import metodos.Chequear;
 
 public class Torneo 
 {
-	String[] listaEquipos;
-	Map<String, int[]> equipos;
-	Fecha[] fixture;
-	int cantEquipos;
+	private String[] listaEquipos;
+	private Map<String, int[]> equipos;
+	private Fecha[] fixture;
+	private int cantEquipos;
 	
 	public Torneo(String[] nombres)
 	{
