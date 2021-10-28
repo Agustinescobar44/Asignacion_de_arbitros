@@ -1,0 +1,92 @@
+{
+  "listaEquipos": [
+    "Boca",
+    "River",
+    "Independiente",
+    "Racing"
+  ],
+  "equipos": {
+    "Independiente": [
+      0,
+      0
+    ],
+    "Boca": [
+      0,
+      0
+    ],
+    "River": [
+      0,
+      0
+    ],
+    "Racing": [
+      0,
+      0
+    ]
+  },
+  "fixture": [
+    {
+      "partidos": [
+        {
+          "equipo1": "Boca",
+          "equipo2": "Racing",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "River",
+          "equipo2": "Independiente",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 2,
+      "equipos": [
+        "Boca",
+        "River",
+        "Independiente",
+        "Racing"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Boca",
+          "equipo2": "Racing",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "River",
+          "equipo2": "Independiente",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 2,
+      "equipos": [
+        "Boca",
+        "River",
+        "Independiente",
+        "Racing"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Boca",
+          "equipo2": "Racing",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "River",
+          "equipo2": "Independiente",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 2,
+      "equipos": [
+        "Boca",
+        "River",
+        "Independiente",
+        "Racing"
+      ]
+    }
+  ],
+  "cantEquipos": 4
+}

@@ -1,0 +1,467 @@
+{
+  "listaEquipos": [
+    "Boca",
+    "River",
+    "Independiente",
+    "Racing",
+    "San Lorenzo",
+    "Huracan",
+    "Central",
+    "Newells",
+    "Gimnasia",
+    "Estudiantes"
+  ],
+  "equipos": {
+    "Gimnasia": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Independiente": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Boca": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Newells": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Estudiantes": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "River": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Central": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Racing": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "San Lorenzo": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Huracan": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "fixture": [
+    {
+      "partidos": [
+        {
+          "equipo1": "Boca",
+          "equipo2": "Estudiantes",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "River",
+          "equipo2": "Gimnasia",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Independiente",
+          "equipo2": "Newells",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Racing",
+          "equipo2": "Central",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Lorenzo",
+          "equipo2": "Huracan",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 5,
+      "equipos": [
+        "Boca",
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Boca",
+          "equipo2": "Estudiantes",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "River",
+          "equipo2": "Gimnasia",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Independiente",
+          "equipo2": "Newells",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Racing",
+          "equipo2": "Central",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Lorenzo",
+          "equipo2": "Huracan",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 5,
+      "equipos": [
+        "Boca",
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Boca",
+          "equipo2": "Estudiantes",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "River",
+          "equipo2": "Gimnasia",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Independiente",
+          "equipo2": "Newells",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Racing",
+          "equipo2": "Central",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Lorenzo",
+          "equipo2": "Huracan",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 5,
+      "equipos": [
+        "Boca",
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Boca",
+          "equipo2": "Estudiantes",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "River",
+          "equipo2": "Gimnasia",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Independiente",
+          "equipo2": "Newells",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Racing",
+          "equipo2": "Central",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Lorenzo",
+          "equipo2": "Huracan",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 5,
+      "equipos": [
+        "Boca",
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Boca",
+          "equipo2": "Estudiantes",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "River",
+          "equipo2": "Gimnasia",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Independiente",
+          "equipo2": "Newells",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Racing",
+          "equipo2": "Central",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Lorenzo",
+          "equipo2": "Huracan",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 5,
+      "equipos": [
+        "Boca",
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Boca",
+          "equipo2": "Estudiantes",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "River",
+          "equipo2": "Gimnasia",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Independiente",
+          "equipo2": "Newells",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Racing",
+          "equipo2": "Central",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Lorenzo",
+          "equipo2": "Huracan",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 5,
+      "equipos": [
+        "Boca",
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Boca",
+          "equipo2": "Estudiantes",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "River",
+          "equipo2": "Gimnasia",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Independiente",
+          "equipo2": "Newells",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Racing",
+          "equipo2": "Central",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Lorenzo",
+          "equipo2": "Huracan",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 5,
+      "equipos": [
+        "Boca",
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Boca",
+          "equipo2": "Estudiantes",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "River",
+          "equipo2": "Gimnasia",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Independiente",
+          "equipo2": "Newells",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Racing",
+          "equipo2": "Central",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Lorenzo",
+          "equipo2": "Huracan",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 5,
+      "equipos": [
+        "Boca",
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Boca",
+          "equipo2": "Estudiantes",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "River",
+          "equipo2": "Gimnasia",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Independiente",
+          "equipo2": "Newells",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Racing",
+          "equipo2": "Central",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Lorenzo",
+          "equipo2": "Huracan",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 5,
+      "equipos": [
+        "Boca",
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes"
+      ]
+    }
+  ],
+  "cantEquipos": 10
+}
