@@ -1,5 +1,7 @@
 package metodos;
 
+import java.util.Map;
+
 import estructuraDeDatos.*;
 
 public class Chequear {
@@ -14,19 +16,32 @@ public class Chequear {
 	
 	public static void partido(int partido, int limite)
 	{
-		if(partido < 0 || partido > limite-1)
-			throw new IllegalArgumentException("Los partidos estan entre el 0 y el " + (limite-1) + ".");
+		if(partido < 0 || partido > limite)
+			throw new IllegalArgumentException("Los partidos estan entre el 0 y el " + (limite) + ".");
 	}
 	
-	public static void equipos(Equipo[] equipos)
+	public static void equipos(String[] equipos)
 	{
+		if (equipos == null)
+			throw new RuntimeException("La lista no contiene equipos.");
 		if(equipos.length % 2 == 1)
 			throw new IllegalArgumentException("El torneo solo admite una cantidad de equipos par.");
-		for (Equipo equipo : equipos)
+		for (String equipo : equipos)
 		{
 			if (equipo == null)
 				throw new RuntimeException("La lista de equipos no es valida.");
 		}
+	}
+	
+	public static void equiposDePartido(Partido partido, Map<String, int[]> equipos)
+	{
+		String eq1 = partido.getEquipo1();
+		String eq2 = partido.getEquipo2();
+		
+		if (!equipos.containsKey(eq1))
+			throw new IllegalArgumentException("El equipo " + eq1 + " no juega el torneo.");
+		if (!equipos.containsKey(eq2))
+			throw new IllegalArgumentException("El equipo " + eq2 + " no juega el torneo.");
 	}
 	
 	public static void fecha(int a, int limite)
