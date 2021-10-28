@@ -12,10 +12,12 @@ public class Fecha {
 	
 	public Fecha (String[] equipos)
 	{	
-		this.partidos = new ArrayList<Partido>();
-		this.cantPartidos = partidos.size();
 		this.equipos = equipos;
+		this.partidos = new ArrayList<Partido>();
 		this.generarFecha();
+		this.cantPartidos = partidos.size();
+		
+		
 	}
 	
 	private void generarFecha()
@@ -59,7 +61,7 @@ public class Fecha {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Fecha [partidos=");
 		builder.append(partidos);
-		builder.append("]");
+		builder.append("]\n");
 		return builder.toString();
 	}
 }
