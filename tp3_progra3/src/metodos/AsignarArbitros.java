@@ -12,12 +12,12 @@ public class AsignarArbitros {
 	static Set<Integer> arbitrosMarcados;
 	
 	// Asigno los arbitos para cada fecha del torneo
-	/*public static void asignarArbitros(String path) {
+	public static void asignarArbitros(String path) {
 		Torneo t = Jsons.leerTorneoDeJson(path);
 		for (int i = 0; i < t.getCantFechas();i++) {
-			asignarArbitrosAFecha(t.getFecha(i));
+			asignarArbitrosAFecha(t.getFecha(i),t );
 		}
-	}*/
+	}
 	public static void asignarArbitros(Torneo t) {
 		for (int i = 0; i < t.getCantFechas();i++) {
 			asignarArbitrosAFecha(t.getFecha(i), t);
