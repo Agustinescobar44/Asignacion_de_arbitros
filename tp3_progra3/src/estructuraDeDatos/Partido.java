@@ -2,44 +2,31 @@ package estructuraDeDatos;
 
 import java.util.Objects;
 
-import metodos.Chequear;
-
-
 public class Partido
 {
-	/**
-	 * 
-	 */
-	//Cada partido tiene dos equipos y un arbitro.
-	private Equipo equipo1;
-	private Equipo equipo2;
+	private String equipo1;
+	private String equipo2;
 	private int arbitro;
 	
-	public Partido(Equipo equipo1, Equipo equipo2)
+	public Partido(String equipo1, String equipo2)
 	{
 		this.equipo1 = equipo1;
 		this.equipo2 = equipo2;
 	}
 	
-	//Asigno un arbitro al partido y le sumo el arbitro a cada equipo.
-	
-	//Este método no deberia ser publico, deberia ser package private. Está en publico con el unico objetivo
-	//de testearlo desde el paquete negocio_test.
+	//Publico solo por tests.
 	public void setArbitro(int arbitro)
 	{
-		Chequear.arbitro(arbitro, this.equipo1.cantArbitros);
 		this.arbitro = arbitro;
-		this.equipo1.agregarPartido(arbitro);
-		this.equipo2.agregarPartido(arbitro);
 	}
 
 	//A revisar por temas de encapsulamiento.
-	public Equipo getEquipo1()
+	public String getEquipo1()
 	{
 		return this.equipo1;
 	}
 	
-	public Equipo getEquipo2()
+	public String getEquipo2()
 	{
 		return this.equipo2;
 	}
@@ -69,13 +56,13 @@ public class Partido
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Partido |");
+		builder.append("Partido |equipo1=");
 		builder.append(equipo1);
-		builder.append(" VS ");
+		builder.append(", equipo2=");
 		builder.append(equipo2);
-		builder.append(" arbitro=");
+		builder.append(", arbitro=");
 		builder.append(arbitro);
-		builder.append("|\n");
+		builder.append("|");
 		return builder.toString();
 	}
 	
