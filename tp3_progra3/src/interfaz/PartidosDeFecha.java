@@ -83,8 +83,8 @@ public class PartidosDeFecha {
 	private void asignarData(Fecha fecha, String[][] data, String[] nombres) {
 		for (int i = 0; i < data.length; i++) {
 			Partido p =  fecha.getPartido(i);
-			data[i][0] = p.getEquipo1().getNombre();
-			data[i][1] = p.getEquipo2().getNombre();
+			data[i][0] = p.getEquipo1();
+			data[i][1] = p.getEquipo2();
 			data[i][2] = nombres[p.getArbitro()];
 		}
 	}
@@ -92,8 +92,8 @@ public class PartidosDeFecha {
 	private void asignarData(Fecha fecha, String[][] data) {
 		for (int i = 0; i < data.length; i++) {
 			Partido p =  fecha.getPartido(i);
-			data[i][0] = p.getEquipo1().getNombre();
-			data[i][1] = p.getEquipo2().getNombre();
+			data[i][0] = p.getEquipo1();
+			data[i][1] = p.getEquipo2();
 			data[i][2] = p.getArbitro()+"";
 		}
 	}

@@ -7,7 +7,6 @@ import java.io.FileWriter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import estructuraDeDatos.Equipo;
 import estructuraDeDatos.Fecha;
 import estructuraDeDatos.Torneo;
 
@@ -45,7 +44,7 @@ public class Jsons {
 		}
 		return ret;
 	}
-	public  static Equipo[] leerEquipoDeJson(String nombre) {
+/*	public  static Equipo[] leerEquipoDeJson(String nombre) {
 		
 		Gson gson = new Gson();
 		Equipo[] ret = null;
@@ -58,7 +57,7 @@ public class Jsons {
 			System.out.println(e);
 		}
 		return ret;
-	}
+	}*/
 	
 	public static void generarJSON(String nombre , Torneo t) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -84,7 +83,7 @@ public class Jsons {
 			System.out.println(e);
 		}
 	}
-	public static void generarJSON(String nombre , Equipo[] equipo) {
+/*	public static void generarJSON(String nombre , Equipo[] equipo) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(equipo);
 		
@@ -95,5 +94,5 @@ public class Jsons {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-	}
+	}*/
 }
