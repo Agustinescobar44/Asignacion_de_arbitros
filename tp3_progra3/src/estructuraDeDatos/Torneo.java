@@ -8,10 +8,10 @@ import metodos.Chequear;
 
 public class Torneo 
 {
-	private String[] listaEquipos;
-	private Map<String, int[]> equipos;
-	private Fecha[] fixture;
-	private int cantEquipos;
+	String[] listaEquipos;
+	Map<String, int[]> equipos;
+	Fecha[] fixture;
+	int cantEquipos;
 	
 	public Torneo(String[] nombres)
 	{
@@ -47,11 +47,11 @@ public class Torneo
 	private void modificarArreglo()
 	{
 		String auxiliar = listaEquipos[this.cantEquipos-1];
-		for (int i = this.cantEquipos-2; i >= 1; i--)
+		for (int i = this.cantEquipos-2; i >= 0; i--)
 		{
 			listaEquipos[i+1] = listaEquipos[i];
 		}
-		listaEquipos[1] = auxiliar;
+		listaEquipos[0] = auxiliar;
 	}
 	
 	public void setArbitro(Partido partido, int arbitro)
