@@ -66,6 +66,27 @@ public class Torneo
 		equipos.get(eq2)[arbitro]++;
 	}
 	
+	public void cambiarArbitro(Partido p1, Partido p2)
+	{
+		
+		Chequear.equiposDePartido(p2, equipos);
+		Chequear.equiposDePartido(p2, equipos);
+		
+		String eq1 = p1.getEquipo1();
+		String eq2 = p1.getEquipo2();
+		String eq3 = p2.getEquipo1();
+		String eq4 = p2.getEquipo2();
+		
+		equipos.get(eq1)[p1.getArbitro()]--;
+		equipos.get(eq2)[p1.getArbitro()]--;
+		equipos.get(eq3)[p2.getArbitro()]--;
+		equipos.get(eq4)[p2.getArbitro()]--;
+		
+		int aux = p1.getArbitro();
+		setArbitro(p1, p2.getArbitro());
+		setArbitro(p2, aux);
+	}
+	
 	public int getCantFechas()
 	{
 		return this.fixture.length;

@@ -12,12 +12,11 @@ public class Fecha {
 	
 	public Fecha (String[] equipos)
 	{	
-		this.equipos = equipos;
 		this.partidos = new ArrayList<Partido>();
+		
+		this.equipos = equipos;
 		this.generarFecha();
 		this.cantPartidos = partidos.size();
-		
-		
 	}
 	
 	private void generarFecha()
