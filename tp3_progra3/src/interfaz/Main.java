@@ -2,6 +2,7 @@ package interfaz;
 
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -16,6 +17,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.UIManager;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
+import java.awt.Color;
 
 
 public class Main {
@@ -57,7 +60,9 @@ public class Main {
 		final ArrayList<JComponent> asignacionDenombres = new ArrayList<>();
 		
 		int anchoFrame=800;
-		int alto = 600;
+		int altoFrame = 600;
+		
+		String pathAImagenFondo = "tp3_progra3\\src\\imagenes\\cancha.jpg";
 		
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -66,7 +71,7 @@ public class Main {
 		}
 		
 		frame = new JFrame();
-		frame.setBounds(100, 100, anchoFrame, alto);
+		frame.setBounds(100, 100, anchoFrame, altoFrame);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null); //centra la ventana
@@ -74,6 +79,7 @@ public class Main {
 		
 		//Interfaz de las fechas-----------------------------
 		JLabel lblFechaDelCalendario = new JLabel("Fechas del calendario de partidos:");
+		lblFechaDelCalendario.setForeground(Color.WHITE);
 		lblFechaDelCalendario.setBounds(12, 12, 423, 15);
 		frame.getContentPane().add(lblFechaDelCalendario);
 		
@@ -82,7 +88,7 @@ public class Main {
 		panelFechas.setLayout(null);
 				
 		int anchoDelScroll = anchoFrame/2;
-		int altoDelScroll = alto/2;
+		int altoDelScroll = altoFrame/2;
 		scrollPane.setBounds(12, 39, anchoDelScroll, altoDelScroll);
 		scrollPane.setViewportView(panelFechas);
 		frame.getContentPane().add(scrollPane);
@@ -171,6 +177,14 @@ public class Main {
 		
 		ocultarComponentes(asignacionDenombres);
 		panelDeAsignacion.setPreferredSize(new Dimension(254,alturaPanelAsignacion));
+		
+		JLabel imagenDeFondo = new JLabel("");
+		ImageIcon imagenDeCancha=escalarImagen(anchoFrame, altoFrame, new ImageIcon(pathAImagenFondo));
+		
+		
+		imagenDeFondo.setIcon(imagenDeCancha);
+		imagenDeFondo.setBounds(0, 0, 784, 561);
+		frame.getContentPane().add(imagenDeFondo);
 	}
 
 	private void agregarActionListener(final Torneo torneo, final int i, JButton btnNewButton , final String[] nombres) {
@@ -194,5 +208,16 @@ public class Main {
 			jComponent.setVisible(false);
 		}
 	}
-	
+	private ImageIcon escalarImagen(int ancho , int alto, ImageIcon img) {
+		//consigo el ancho y el alto del escalado
+		
+		//transgformo la imagenicon a image para escalar
+		Image tempImage = img.getImage();
+		
+		//la escalo
+		Image tempCambiada = tempImage.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
+		
+		//retorno la image como imageicon
+		return (new ImageIcon(tempCambiada));
+	}
 }
