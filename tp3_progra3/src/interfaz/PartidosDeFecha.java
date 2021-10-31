@@ -23,8 +23,8 @@ public class PartidosDeFecha {
 	 * @param ventanaPrincipal 
 	 * @param nombres 
 	 */
-	public PartidosDeFecha(Fecha fecha, JFrame ventanaPrincipal, String[] nombres) {
-		initialize(fecha , ventanaPrincipal , nombres);
+	public PartidosDeFecha(Fecha fecha, JFrame ventanaPrincipal, String[] nombres , int i ) {
+		initialize(fecha , ventanaPrincipal , nombres , i);
 	}
 
 	/**
@@ -33,7 +33,7 @@ public class PartidosDeFecha {
 	 * @param ventanaPrincipal 
 	 * @param nombres 
 	 */
-	private void initialize(Fecha fecha, final JFrame ventanaPrincipal, String[] nombres) {
+	private void initialize(Fecha fecha, final JFrame ventanaPrincipal, String[] nombres , int i) {
 		int anchoDelFrame = 800;
 		int altoDelFrame = 600;
 		frame = new JFrame();
@@ -42,17 +42,17 @@ public class PartidosDeFecha {
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null); //centra la ventana
 		
-		JButton btnNewButton = new JButton("Volver");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton botonVolver = new JButton("Volver");
+		botonVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				ventanaPrincipal.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(10, 11, 89, 23);
-		frame.getContentPane().add(btnNewButton);
+		botonVolver.setBounds(10, 11, 89, 23);
+		frame.getContentPane().add(botonVolver);
 		
-		JLabel lblNewLabel = new JLabel("Partidos de Fecha X");
+		JLabel lblNewLabel = new JLabel("Partidos de Fecha: " + (i+1));
 		lblNewLabel.setBounds(137, 15, 118, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
@@ -73,7 +73,7 @@ public class PartidosDeFecha {
 			asignarData(fecha, data , nombres);
 		}
 		
-		String[] nombreDeColumnas = {"Equipo 1", "Equipo 2" , "Arbitro n�"};
+		String[] nombreDeColumnas = {"Equipo 1", "Equipo 2" , "Arbitro numero"};
 		
 		table = new JTable(data,nombreDeColumnas);
 		scrollPane.setViewportView(table);
