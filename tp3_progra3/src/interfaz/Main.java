@@ -130,6 +130,7 @@ public class Main {
 		asignacionDenombres.add(scrollDeAsginacion);
 		asignacionDenombres.add(panelDeAsignacion);
 		
+		JTextField[] listaTextFields = new JTextField[torneo.getCantFechas()/2+1];
 		int posicionEnY = 5;
 		int alturaPanelAsignacion=300;
 		for (int i = 0; i < torneo.getCantFechas()/2+1; i++) {
@@ -140,6 +141,7 @@ public class Main {
 			textField = new JTextField();
 			textField.setBounds(108, posicionEnY, 86, 20);
 			panelDeAsignacion.add(textField);
+			listaTextFields[i] = textField;
 			textField.setColumns(10);
 			
 			if(i>15) {
@@ -150,6 +152,22 @@ public class Main {
 			asignacionDenombres.add(lblNewLabel);
 			asignacionDenombres.add(textField);
 		}
+		
+		JButton botonAsignarNombres = new JButton("Asignar Nombres");
+		botonAsignarNombres.setBounds(108, posicionEnY + 30, 80, 20);
+		panelDeAsignacion.add(botonAsignarNombres);
+		
+		botonAsignarNombres.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int i = 0;
+				for(JTextField text : listaTextFields)
+				{
+					nombres[i] = text.getText();
+					i++;
+				}
+				ocultarComponentes(asignacionDenombres);
+			}
+		});
 		
 		ocultarComponentes(asignacionDenombres);
 		panelDeAsignacion.setPreferredSize(new Dimension(254,alturaPanelAsignacion));

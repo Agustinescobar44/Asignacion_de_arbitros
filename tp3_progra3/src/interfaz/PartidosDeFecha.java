@@ -1,6 +1,7 @@
 package interfaz;
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
@@ -9,12 +10,17 @@ import estructuraDeDatos.Partido;
 
 import javax.swing.JTable;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
+
 
 public class PartidosDeFecha {
 
 	private JFrame frame;
 	private JTable table;
+
 
 
 	/**
@@ -52,13 +58,13 @@ public class PartidosDeFecha {
 		btnNewButton.setBounds(10, 11, 89, 23);
 		frame.getContentPane().add(btnNewButton);
 		
-		JLabel lblNewLabel = new JLabel("Partidos de Fecha X");
+		JLabel lblNewLabel = new JLabel("Partidos de la Fecha");
 		lblNewLabel.setBounds(137, 15, 118, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JButton btnNewButton_1 = new JButton("Cambiar Arbitro");
-		btnNewButton_1.setBounds(567, 527, 124, 23);
-		frame.getContentPane().add(btnNewButton_1);
+		JButton botonCambiarArbitro = new JButton("Cambiar Arbitro");
+		botonCambiarArbitro.setBounds(567, 527, 124, 23);
+		frame.getContentPane().add(botonCambiarArbitro);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(44, 68, 663, 337);
@@ -73,11 +79,14 @@ public class PartidosDeFecha {
 			asignarData(fecha, data , nombres);
 		}
 		
-		String[] nombreDeColumnas = {"Equipo 1", "Equipo 2" , "Arbitro n�"};
+		String[] nombreDeColumnas = {"Local", "Visitante" , "Arbitro"};
 		
 		table = new JTable(data,nombreDeColumnas);
+		table.setForeground(new Color(255, 255, 255));
+		table.setFont(new Font("Tahoma", Font.BOLD, 11));
+		table.setBackground(new Color(0, 128, 0));
+		table.setGridColor(Color.WHITE);
 		scrollPane.setViewportView(table);
-		
 	}
 	
 	private void asignarData(Fecha fecha, String[][] data, String[] nombres) {
