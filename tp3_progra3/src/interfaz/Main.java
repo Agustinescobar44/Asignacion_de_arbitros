@@ -133,7 +133,7 @@ public class Main {
 		int posicionEnY = 5;
 		int alturaPanelAsignacion=300;
 		for (int i = 0; i < torneo.getCantFechas()/2+1; i++) {
-			JLabel lblNewLabel = new JLabel("Nombre para aribtro n�" + i);
+			JLabel lblNewLabel = new JLabel("Nombre para aribtro numero" + i);
 			lblNewLabel.setBounds(59, posicionEnY, 60, 14);
 			panelDeAsignacion.add(lblNewLabel);
 			
@@ -159,7 +159,7 @@ public class Main {
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PartidosDeFecha partidosDeFecha= new PartidosDeFecha(torneo.getFecha(i),frame, nombres);
+				PartidosDeFecha partidosDeFecha= new PartidosDeFecha(torneo.getFecha(i),frame, nombres,i);
 				frame.setVisible(false);
 				partidosDeFecha.setVisible();
 			}
