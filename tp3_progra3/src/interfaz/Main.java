@@ -131,11 +131,11 @@ public class Main {
 				}
 			}
 		});
-		btnNewButton_1.setBounds(442, 472, 293, 57);
+		btnNewButton_1.setBounds(442, 472, 299, 57);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JScrollPane scrollDeAsginacion = new JScrollPane();
-		scrollDeAsginacion.setBounds(464, 153, 254, 300);
+		scrollDeAsginacion.setBounds(456, 153, 279, 300);
 		frame.getContentPane().add(scrollDeAsginacion);
 		
 		JPanel panelDeAsignacion = new JPanel();
@@ -149,12 +149,12 @@ public class Main {
 		int posicionEnY = 5;
 		int alturaPanelAsignacion=300;
 		for (int i = 0; i < torneo.getCantFechas()/2+1; i++) {
-			JLabel lblNewLabel = new JLabel("Nombre para aribtro numero" + i);
-			lblNewLabel.setBounds(59, posicionEnY, 60, 14);
+			JLabel lblNewLabel = new JLabel("Nombre arbitro " + i);
+			lblNewLabel.setBounds(30,posicionEnY, 180,14);
 			panelDeAsignacion.add(lblNewLabel);
 			
 			textField = new JTextField();
-			textField.setBounds(108, posicionEnY, 86, 20);
+			textField.setBounds(150,posicionEnY, 100,20); 
 			panelDeAsignacion.add(textField);
 			listaTextFields[i] = textField;
 			textField.setColumns(10);
