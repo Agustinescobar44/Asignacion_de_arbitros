@@ -66,6 +66,8 @@ public class Main {
 		
 		final ArrayList<JComponent> asignacionDenombres = new ArrayList<>();
 		
+		final ArrayList<JComponent> datosEstadisticas = new ArrayList<>();
+		
 		int anchoFrame=800;
 		int altoFrame = 600;
 		
@@ -197,6 +199,16 @@ public class Main {
 		frame.getContentPane().add(imagenDeFondo);
 		
 		JButton btnMuestraEstadisticas = new JButton("Mostrar Estadisticas");
+		btnMuestraEstadisticas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(!datosEstadisticas.get(0).isVisible())
+					mostrarComponentes(datosEstadisticas);
+				else {
+					ocultarComponentes(datosEstadisticas);
+				}
+			}
+		});
+		
 		btnMuestraEstadisticas.setBounds(38, 472, 269, 57);
 		frame.getContentPane().add(btnMuestraEstadisticas);
 		
@@ -215,6 +227,7 @@ public class Main {
 		JScrollPane scrollDeEstadisticas = new JScrollPane();
 		scrollDeEstadisticas.setBounds(38, 351, 279, 115);
 		frame.getContentPane().add(scrollDeEstadisticas);
+		datosEstadisticas.add(scrollDeEstadisticas);
 		
 		JPanel panelDeEstadisticas = new JPanel();
 		scrollDeEstadisticas.setViewportView(panelDeEstadisticas);
