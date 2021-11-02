@@ -56,7 +56,7 @@ public class Main {
 	 */
 	private void initialize() {
 		Torneo torneo=Principal.devolverTorneo();
-		String[] nombres = new String[torneo.getCantFechas()/2+1];
+		final String[] nombres = new String[torneo.getCantFechas()/2+1];
 		final ArrayList<JComponent> asignacionDenombres = new ArrayList<>();
 		
 		int anchoFrame=800;
@@ -136,7 +136,7 @@ public class Main {
 		asignacionDenombres.add(scrollDeAsginacion);
 		asignacionDenombres.add(panelDeAsignacion);
 		
-		JTextField[] listaTextFields = new JTextField[torneo.getCantFechas()/2+1];
+		final JTextField[] listaTextFields = new JTextField[torneo.getCantFechas()/2+1];
 		int posicionEnY = 5;
 		int alturaPanelAsignacion=300;
 		for (int i = 0; i < torneo.getCantFechas()/2+1; i++) {
