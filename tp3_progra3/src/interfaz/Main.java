@@ -165,7 +165,7 @@ public class Main {
 		}
 		
 		JButton botonAsignarNombres = new JButton("Asignar Nombres");
-		botonAsignarNombres.setBounds(108, posicionEnY + 30, 80, 20);
+		botonAsignarNombres.setBounds(50, posicionEnY + 30, 160, 20);
 		panelDeAsignacion.add(botonAsignarNombres);
 		
 		botonAsignarNombres.addActionListener(new ActionListener() {
