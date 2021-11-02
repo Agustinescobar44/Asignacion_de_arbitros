@@ -198,20 +198,6 @@ public class Main {
 		imagenDeFondo.setBounds(0, 0, 784, 561);
 		frame.getContentPane().add(imagenDeFondo);
 		
-		JButton btnMuestraEstadisticas = new JButton("Mostrar Estadisticas");
-		btnMuestraEstadisticas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(!datosEstadisticas.get(0).isVisible())
-					mostrarComponentes(datosEstadisticas);
-				else {
-					ocultarComponentes(datosEstadisticas);
-				}
-			}
-		});
-		
-		btnMuestraEstadisticas.setBounds(38, 472, 269, 57);
-		frame.getContentPane().add(btnMuestraEstadisticas);
-		
 		JButton btnSalir = new JButton("Salir");
 		btnSalir.addMouseListener(new MouseAdapter() {
 			@Override
@@ -224,13 +210,43 @@ public class Main {
 		btnSalir.setBounds(624, 541, 117, 25);
 		frame.getContentPane().add(btnSalir);
 		
+		//asignacion de estadisticas
+		
+		JButton btnMuestraEstadisticas = new JButton("Mostrar Estadisticas");
+		btnMuestraEstadisticas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(!datosEstadisticas.get(0).isVisible())
+					mostrarComponentes(datosEstadisticas);
+				else {
+					ocultarComponentes(datosEstadisticas);
+				}
+			}
+		});
+		
+		btnMuestraEstadisticas.setBounds(38, 472, 325, 57);
+		frame.getContentPane().add(btnMuestraEstadisticas);
+		
 		JScrollPane scrollDeEstadisticas = new JScrollPane();
-		scrollDeEstadisticas.setBounds(38, 351, 279, 115);
+		scrollDeEstadisticas.setBounds(38, 351, 325, 115);
 		frame.getContentPane().add(scrollDeEstadisticas);
 		datosEstadisticas.add(scrollDeEstadisticas);
 		
 		JPanel panelDeEstadisticas = new JPanel();
 		scrollDeEstadisticas.setViewportView(panelDeEstadisticas);
+		panelDeEstadisticas.setLayout(null);
+		
+		JLabel lblMayorArbitro = new JLabel("Mayor arbitro: ");
+		lblMayorArbitro.setBounds(12, 12, 252, 15);
+		panelDeEstadisticas.add(lblMayorArbitro);
+		
+		JLabel lblMenorArbitro = new JLabel("Menor arbitro:");
+		lblMenorArbitro.setBounds(12, 36, 252, 15);
+		panelDeEstadisticas.add(lblMenorArbitro);
+		
+		JLabel lblCantidadDeEquipos = new JLabel("Cantidad de equipos de cada arbitro:");
+		lblCantidadDeEquipos.setBounds(12, 63, 298, 15);
+		panelDeEstadisticas.add(lblCantidadDeEquipos);
+		ocultarComponentes(datosEstadisticas);
 	}
 
 	private void agregarActionListener(final Torneo torneo, final int i, JButton btnNewButton , final String[] nombres) {
