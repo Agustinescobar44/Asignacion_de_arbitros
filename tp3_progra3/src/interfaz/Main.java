@@ -19,6 +19,8 @@ import javax.swing.UIManager;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class Main {
@@ -193,6 +195,29 @@ public class Main {
 		imagenDeFondo.setIcon(imagenDeCancha);
 		imagenDeFondo.setBounds(0, 0, 784, 561);
 		frame.getContentPane().add(imagenDeFondo);
+		
+		JButton btnMuestraEstadisticas = new JButton("Mostrar Estadisticas");
+		btnMuestraEstadisticas.setBounds(38, 472, 269, 57);
+		frame.getContentPane().add(btnMuestraEstadisticas);
+		
+		JButton btnSalir = new JButton("Salir");
+		btnSalir.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.dispose();
+				System.exit(0);
+				
+			}
+		});
+		btnSalir.setBounds(624, 541, 117, 25);
+		frame.getContentPane().add(btnSalir);
+		
+		JScrollPane scrollDeEstadisticas = new JScrollPane();
+		scrollDeEstadisticas.setBounds(38, 351, 279, 115);
+		frame.getContentPane().add(scrollDeEstadisticas);
+		
+		JPanel panelDeEstadisticas = new JPanel();
+		scrollDeEstadisticas.setViewportView(panelDeEstadisticas);
 	}
 
 	private void agregarActionListener(final Torneo torneo, final int i, JButton btnNewButton , final String[] nombres) {
