@@ -57,6 +57,11 @@ public class Main {
 	private void initialize() {
 		Torneo torneo=Principal.devolverTorneo();
 		final String[] nombres = new String[torneo.getCantFechas()/2+1];
+		
+		for(int i=0; i<nombres.length ; i++) {
+			nombres[i]=Integer.toString(i);
+		}
+		
 		final ArrayList<JComponent> asignacionDenombres = new ArrayList<>();
 		
 		int anchoFrame=800;
@@ -168,7 +173,10 @@ public class Main {
 				int i = 0;
 				for(JTextField text : listaTextFields)
 				{
-					nombres[i] = text.getText();
+				String aux=text.getText();
+					if(aux.length()!=0) {
+						nombres[i] = aux;
+					}
 					i++;
 				}
 				ocultarComponentes(asignacionDenombres);
