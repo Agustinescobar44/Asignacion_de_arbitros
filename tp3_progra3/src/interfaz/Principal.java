@@ -9,7 +9,7 @@ public class Principal {
 
 	
 	static Torneo devolverTorneo() {
-		Torneo t = Jsons.leerTorneoDeJson("equipos_prueba");
+		Torneo t = Jsons.leerTorneoDeJson("prueba");
 		AsignarArbitros.asignarArbitros(t);
 		//System.out.println(t);
 		return t;
