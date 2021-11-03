@@ -2,15 +2,10 @@
   "listaEquipos": [
     "River",
     "Independiente",
-    "Racing",
-    "Boca"
+    "Racing"
   ],
   "equipos": {
     "Independiente": [
-      0,
-      0
-    ],
-    "Boca": [
       0,
       0
     ],
@@ -88,5 +83,5 @@
       ]
     }
   ],
-  "cantEquipos": 4
+  "cantEquipos": 3
 }

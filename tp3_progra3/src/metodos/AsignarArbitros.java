@@ -11,21 +11,35 @@ public class AsignarArbitros {
 	
 	static Set<Integer> arbitrosMarcados;
 	
+	private static void chequearTorneo(Torneo t) {
+		if(t.getCantEquipos() < 2)
+			throw new IllegalArgumentException("los equipos deben ser mas de 1");
+		if(t.getCantEquipos()%2 != 0)
+			throw new IllegalArgumentException("Los equipos deben ser pares, este torneo tiene " + t.getCantEquipos() + " equipos");
+		if(t.getCantFechas() != t.getCantEquipos()-1) 
+			throw new IllegalArgumentException("la cantidad de fechas no es la correcta");
+	}
+	
 	// Asigno los arbitos para cada fecha del torneo
 	public static void asignarArbitros(String path) {
 		Torneo t = Jsons.leerTorneoDeJson(path);
+
+		chequearTorneo(t);
+		
 		for (int i = 0; i < t.getCantFechas();i++) {
 			asignarArbitrosAFecha(t.getFecha(i),t );
 		}
 	}
 	public static void asignarArbitros(Torneo t) {
+		chequearTorneo(t);
+		
 		for (int i = 0; i < t.getCantFechas();i++) {
 			asignarArbitrosAFecha(t.getFecha(i), t);
 		}
 	}
 
 	//le asigno arbitro a cada partido de la fecha
-	public static void asignarArbitrosAFecha(Fecha f, Torneo t) {
+	private static void asignarArbitrosAFecha(Fecha f, Torneo t) {
 		arbitrosMarcados = new HashSet<Integer>();
 		for (Partido partido : f.getPartidos()) {
 			asignarArbitroAPartido(partido,arbitrosMarcados, t);
@@ -35,7 +49,7 @@ public class AsignarArbitros {
 	/*le asigno un arbitro al partido, que no haya sido marcado antes
 		aca es donde va la logica y lo que hay que pensar en grupo 
 	*/
-	public static void asignarArbitroAPartido(Partido partido,Set<Integer> arbitrosMarcados, Torneo t) {
+	private static void asignarArbitroAPartido(Partido partido,Set<Integer> arbitrosMarcados, Torneo t) {
 		String equipoa = partido.getEquipo1();
 		String equipob = partido.getEquipo2();
 		
@@ -54,7 +68,6 @@ public class AsignarArbitros {
 		if(arbitroElegido ==-1) {
 			throw new RuntimeException("No se pudo asignar el arbitro");
 		}
-		//partido.setArbitro(arbitroElegido);
 		t.setArbitro(partido, arbitroElegido);
 		arbitrosMarcados.add(arbitroElegido);
 

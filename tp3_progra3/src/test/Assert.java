@@ -1,35 +1,36 @@
 package test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import estructuraDeDatos.Torneo;
 
 public class Assert {
 
-	static void cuatroEquipos(Torneo torneo){
-		assertEquals(torneo.getFecha(0).getPartido(0).getArbitro(), 0);
-		assertEquals(torneo.getFecha(0).getPartido(1).getArbitro(), 1);
-		assertEquals(torneo.getFecha(1).getPartido(0).getArbitro(), 1);
-		assertEquals(torneo.getFecha(1).getPartido(1).getArbitro(), 0);
-		assertEquals(torneo.getFecha(2).getPartido(0).getArbitro(), 0);
-		assertEquals(torneo.getFecha(2).getPartido(1).getArbitro(), 1);
+	static void todosConArbitro(Torneo torneo){
+		for(int i = 0 ; i<torneo.getCantFechas() ; i++) {
+			for(int j = 0 ; j<torneo.getFecha(i).getCantPartidos() ; j++) {
+				assertNotNull(torneo.getFecha(i).getPartido(j).getArbitro());
+			}
+		}
 	}
-	static void seisEquipos(Torneo torneo){
-		assertEquals(torneo.getFecha(0).getPartido(0).getArbitro(), 0);
-		assertEquals(torneo.getFecha(0).getPartido(1).getArbitro(), 1);
-		assertEquals(torneo.getFecha(0).getPartido(2).getArbitro(), 2);
-		assertEquals(torneo.getFecha(1).getPartido(0).getArbitro(), 1);
-		assertEquals(torneo.getFecha(1).getPartido(1).getArbitro(), 0);
-		assertEquals(torneo.getFecha(1).getPartido(2).getArbitro(), 2);
-		assertEquals(torneo.getFecha(2).getPartido(0).getArbitro(), 2);
-		assertEquals(torneo.getFecha(2).getPartido(1).getArbitro(), 0);
-		assertEquals(torneo.getFecha(2).getPartido(2).getArbitro(), 1);
-		assertEquals(torneo.getFecha(3).getPartido(0).getArbitro(), 0);
-		assertEquals(torneo.getFecha(3).getPartido(1).getArbitro(), 2);
-		assertEquals(torneo.getFecha(3).getPartido(2).getArbitro(), 1);
-		assertEquals(torneo.getFecha(4).getPartido(0).getArbitro(), 1);
-		assertEquals(torneo.getFecha(4).getPartido(1).getArbitro(), 2);
-		assertEquals(torneo.getFecha(4).getPartido(2).getArbitro(), 0);
+
+	public static void todosConArbitroDiferente(Torneo torneo) {
+		int cantArbitros = torneo.getCantEquipos()/2;
+		int[] arbitrosMarcados = new int[cantArbitros];
+		
+		for(int i = 0 ; i<torneo.getCantFechas() ; i++) {
+			arbitrosMarcados = new int[cantArbitros];
+			for(int j = 0 ; j<torneo.getFecha(i).getCantPartidos() ; j++) {
+				int arbitroDelPartido= torneo.getFecha(i).getPartido(j).getArbitro();
+					arbitrosMarcados[arbitroDelPartido]+=1 ;
+					
+			}
+			for (int j = 0; j < arbitrosMarcados.length; j++) {
+				assertEquals(1, arbitrosMarcados[j]);
+			}
+		}
+		
 	}
+	
 	
 }
