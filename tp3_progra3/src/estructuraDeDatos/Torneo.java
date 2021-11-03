@@ -112,6 +112,10 @@ public class Torneo
 		return this.cantEquipos;
 	}
 
+	public String[] getListaDeEquipos(){
+		return this.listaEquipos.clone();
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
