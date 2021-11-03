@@ -57,7 +57,7 @@ public class Main {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		Torneo torneo=Principal.devolverTorneo();
+		final Torneo torneo=Principal.devolverTorneo();
 		final String[] nombres = new String[torneo.getCantFechas()/2+1];
 		
 		for(int i=0; i<nombres.length ; i++) {
