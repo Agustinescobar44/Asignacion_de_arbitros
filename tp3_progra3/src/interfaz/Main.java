@@ -66,8 +66,6 @@ public class Main {
 		
 		final ArrayList<JComponent> asignacionDenombres = new ArrayList<>();
 		
-		final ArrayList<JComponent> datosEstadisticas = new ArrayList<>();
-		
 		int anchoFrame=800;
 		int altoFrame = 600;
 		
@@ -217,9 +215,6 @@ public class Main {
 		
 		btnMuestraEstadisticas.setBounds(38, 472, 325, 57);
 		frame.getContentPane().add(btnMuestraEstadisticas);
-		
-		ocultarComponentes(datosEstadisticas);
-		
 		
 		JLabel imagenDeFondo = new JLabel("");
 		ImageIcon imagenDeCancha=escalarImagen(anchoFrame, altoFrame, new ImageIcon(pathAImagenFondo));
