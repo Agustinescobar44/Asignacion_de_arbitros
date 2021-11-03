@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
@@ -57,16 +58,12 @@ public class Main {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		Torneo torneo=Principal.devolverTorneo();
+		final Torneo torneo=Principal.devolverTorneo();
 		final String[] nombres = new String[torneo.getCantFechas()/2+1];
 		
-		for(int i=0; i<nombres.length ; i++) {
-			nombres[i]=Integer.toString(i);
-		}
+		inicializarNombresArbitros(nombres);
 		
 		final ArrayList<JComponent> asignacionDenombres = new ArrayList<>();
-		
-		final ArrayList<JComponent> datosEstadisticas = new ArrayList<>();
 		
 		int anchoFrame=800;
 		int altoFrame = 600;
@@ -168,12 +165,13 @@ public class Main {
 			asignacionDenombres.add(textField);
 		}
 		
-		JButton botonAsignarNombres = new JButton("Asignar Nombres");
-		botonAsignarNombres.setBounds(50, posicionEnY + 30, 160, 20);
+		JButton botonAsignarNombres = new JButton("Asignar Nombres en orden");
+		botonAsignarNombres.setBounds(30, posicionEnY + 30, 200, 20);
 		panelDeAsignacion.add(botonAsignarNombres);
 		
 		botonAsignarNombres.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				inicializarNombresArbitros(nombres);
 				int i = 0;
 				for(JTextField text : listaTextFields)
 				{
@@ -182,6 +180,32 @@ public class Main {
 						nombres[i] = aux;
 					}
 					i++;
+				}
+				ocultarComponentes(asignacionDenombres);
+			}
+		});
+		
+		JButton botonAsignarAleatorio= new JButton("Asignar Nombres aleatorio");
+		botonAsignarAleatorio.setBounds(30, posicionEnY + 60, 200, 20);
+		panelDeAsignacion.add(botonAsignarAleatorio);
+		
+		botonAsignarAleatorio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				inicializarNombresArbitros(nombres);
+				int cantArbitros=(torneo.getCantEquipos()/2)-1;
+				boolean[] arbitros=new boolean[cantArbitros];
+				Random random=new Random();
+				for(JTextField text : listaTextFields)
+				{
+				String aux=text.getText();
+				int indiceElegido=random.nextInt(cantArbitros);
+				if(aux.length()!=0) {
+					while(arbitros[indiceElegido]==true) {
+						indiceElegido=random.nextInt(cantArbitros);
+					}
+					nombres[indiceElegido] = aux;
+					arbitros[indiceElegido]=true;
+					}
 				}
 				ocultarComponentes(asignacionDenombres);
 			}
@@ -218,15 +242,18 @@ public class Main {
 		btnMuestraEstadisticas.setBounds(38, 472, 325, 57);
 		frame.getContentPane().add(btnMuestraEstadisticas);
 		
-		ocultarComponentes(datosEstadisticas);
-		
-		
 		JLabel imagenDeFondo = new JLabel("");
 		ImageIcon imagenDeCancha=escalarImagen(anchoFrame, altoFrame, new ImageIcon(pathAImagenFondo));
 		
 		imagenDeFondo.setIcon(imagenDeCancha);
 		imagenDeFondo.setBounds(0, 0, 784, 561);
 		frame.getContentPane().add(imagenDeFondo);
+	}
+
+	private void inicializarNombresArbitros(final String[] nombres) {
+		for(int i=0; i<nombres.length ; i++) {
+			nombres[i]=Integer.toString(i);
+		}
 	}
 
 	private void agregarActionListener(final Torneo torneo, final int i, JButton btnNewButton , final String[] nombres) {
