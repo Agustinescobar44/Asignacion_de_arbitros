@@ -209,7 +209,7 @@ public class Main {
 		JButton btnMuestraEstadisticas = new JButton("Mostrar Estadisticas");
 		btnMuestraEstadisticas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Estadisticas estadisticas = new  Estadisticas(torneo);
+				Estadisticas estadisticas = new  Estadisticas(torneo,frame,nombres);
 				frame.setVisible(false);
 				estadisticas.setVisible();
 			}
