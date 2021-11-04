@@ -113,7 +113,7 @@ public class PartidosDeFecha {
 			Partido p =  fecha.getPartido(i);
 			data[i][0] = p.getEquipo1();
 			data[i][1] = p.getEquipo2();
-			data[i][2] = p.getArbitro()+"";
+			data[i][2] = p.getArbitro() + "";
 		}
 	}
 
