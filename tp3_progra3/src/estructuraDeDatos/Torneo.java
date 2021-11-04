@@ -111,6 +111,10 @@ public class Torneo
 	{
 		return this.cantEquipos;
 	}
+	public int getCantArbitros()
+	{
+		return this.cantEquipos/2;
+	}
 
 	public String[] getListaDeEquipos(){
 		return this.listaEquipos.clone();
