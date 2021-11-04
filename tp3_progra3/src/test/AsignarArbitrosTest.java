@@ -34,24 +34,6 @@ public class AsignarArbitrosTest {
 		Assert.todosConArbitroDiferente(torneo);
 	}
 	
-	@SuppressWarnings("unused")
-	private String[] crear6Equipos() {
-		String a = "Boca";
-		String b ="river";
-		String c = "Independiente";
-		String d = "SanLorenzso";
-		String e = "Sacachispas";
-		String f = "El trueno verde";
-		String[] equipos = {a,b,c,d,e,f};
-		return equipos;
-	}
-	@SuppressWarnings("unused")
-	private String[] crear2Equipos() {
-		String a = "Boca";
-		String b = "river";
-		String[] equipos = {a,b};
-		return equipos;
-	}
 	private String[] crear4Equipos() {
 		String a = "Boca";
 		String b = "river";
