@@ -22,13 +22,13 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.GridLayout;
 
 
 public class Main {
 
 	private JFrame frame;
 	final JScrollPane scrollPane;
-	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -58,18 +58,18 @@ public class Main {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		//variables--------------
 		final Torneo torneo=Principal.devolverTorneo();
 		final String[] nombres = new String[torneo.getCantFechas()/2+1];
 		
 		inicializarNombresArbitros(nombres);
 		
-		final ArrayList<JComponent> asignacionDenombres = new ArrayList<>();
-		
+		final ArrayList<JComponent> asignacionDenombresUI = new ArrayList<>();
+		String pathAImagenFondo = "tp3_progra3\\src\\imagenes\\cancha.jpg";
 		int anchoFrame=800;
 		int altoFrame = 600;
 		
-		String pathAImagenFondo = "tp3_progra3\\src\\imagenes\\cancha.jpg";
-		
+		ImageIcon imagenDeCancha=escalarImagen(anchoFrame, altoFrame, new ImageIcon(pathAImagenFondo));		
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
@@ -82,108 +82,62 @@ public class Main {
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null); //centra la ventana
 		
-		
 		//Interfaz de las fechas-----------------------------
-		JLabel lblFechaDelCalendario = new JLabel("Fechas del calendario de partidos:");
-		lblFechaDelCalendario.setForeground(Color.WHITE);
-		lblFechaDelCalendario.setBounds(12, 12, 423, 15);
-		frame.getContentPane().add(lblFechaDelCalendario);
+		agregarPanelDeFechas(torneo, nombres, anchoFrame, altoFrame);
 		
-		JPanel panelFechas = new JPanel();
-		panelFechas.setBounds(12, 39, 325, 225);
-		panelFechas.setLayout(null);
-				
-		int anchoDelScroll = anchoFrame/2;
-		int altoDelScroll = altoFrame/2;
-		scrollPane.setBounds(12, 39, anchoDelScroll, altoDelScroll);
-		scrollPane.setViewportView(panelFechas);
-		frame.getContentPane().add(scrollPane);
-		
-		//agrego botones con fecha
-		int distanciaY=12;
-		int alturaDelPanelFechas=200;
-		for(int i=0; i<torneo.getCantFechas(); i++) {
-			JButton btnNewButton = new JButton("Fecha " + (i+1));
-			agregarActionListener(torneo, i, btnNewButton,nombres);
-			
-			if (i>6) {
-				alturaDelPanelFechas+=90;
-			}
-			panelFechas.add(btnNewButton);
-			btnNewButton.setBounds(anchoDelScroll/4-10, distanciaY, anchoDelScroll/2, 25);
-			distanciaY+=40;
-		}
-		
-		panelFechas.setPreferredSize(new Dimension(360,alturaDelPanelFechas));
-		
-		//Asignacion de arbitros------------------------
-		
-		JButton btnNewButton_1 = new JButton("Asignar nombre a los arbitros");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(!asignacionDenombres.get(0).isVisible())
-					mostrarComponentes(asignacionDenombres);
-				else {
-					ocultarComponentes(asignacionDenombres);
-				}
+		JButton btnSalir = new JButton("Salir");
+		btnSalir.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.dispose();
+				System.exit(0);
 			}
 		});
-		btnNewButton_1.setBounds(442, 472, 299, 57);
-		frame.getContentPane().add(btnNewButton_1);
+		btnSalir.setBounds(594, 497, 160, 42);
+		frame.getContentPane().add(btnSalir);
+		
+		//Creacion de estadisticas--------------------------------------------------------
+		
+		JButton btnMuestraEstadisticas = new JButton("Mostrar Estadisticas");
+		btnMuestraEstadisticas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				Estadisticas estadisticas = new  Estadisticas(torneo,frame,nombres , imagenDeCancha);
+				estadisticas.setVisible();
+			}
+		});
+		
+		btnMuestraEstadisticas.setBounds(40, 445, 325, 57);
+		frame.getContentPane().add(btnMuestraEstadisticas);
+		
+		
+		
+		//Asignacion de nombres a los arbitros------------------------
+		
+		//cantidad de arbitros * tamaño del label + tamaño de los botones
+		int alturaPanelAsignacion=torneo.getCantEquipos()/2*40 + 20; 
 		
 		JScrollPane scrollDeAsginacion = new JScrollPane();
-		scrollDeAsginacion.setBounds(456, 153, 279, 300);
+		scrollDeAsginacion.setBounds(477, 84, 279, 300);
 		frame.getContentPane().add(scrollDeAsginacion);
+		
 		
 		JPanel panelDeAsignacion = new JPanel();
 		scrollDeAsginacion.setViewportView(panelDeAsignacion);
 		panelDeAsignacion.setLayout(null);
+		panelDeAsignacion.setPreferredSize(new Dimension(254,alturaPanelAsignacion));
 		
-		asignacionDenombres.add(scrollDeAsginacion);
-		asignacionDenombres.add(panelDeAsignacion);
+		asignacionDenombresUI.add(scrollDeAsginacion);
+		asignacionDenombresUI.add(panelDeAsignacion);
 		
 		final JTextField[] listaTextFields = new JTextField[torneo.getCantFechas()/2+1];
 		int posicionEnY = 5;
-		int alturaPanelAsignacion=300;
+		
 		for (int i = 0; i < torneo.getCantFechas()/2+1; i++) {
-			JLabel lblNewLabel = new JLabel("Nombre arbitro " + i);
-			lblNewLabel.setBounds(30,posicionEnY, 180,14);
-			panelDeAsignacion.add(lblNewLabel);
-			
-			textField = new JTextField();
-			textField.setBounds(150,posicionEnY, 100,20); 
-			panelDeAsignacion.add(textField);
-			listaTextFields[i] = textField;
-			textField.setColumns(10);
-			
-			if(i>15) {
-				alturaPanelAsignacion+=40;
-			}
+			agregarLaberYTextfiel(panelDeAsignacion, listaTextFields, posicionEnY, i,asignacionDenombresUI);
+		
 			posicionEnY += 30;
-			
-			asignacionDenombres.add(lblNewLabel);
-			asignacionDenombres.add(textField);
 		}
-		
-		JButton botonAsignarNombres = new JButton("Asignar Nombres en orden");
-		botonAsignarNombres.setBounds(30, posicionEnY + 30, 200, 20);
-		panelDeAsignacion.add(botonAsignarNombres);
-		
-		botonAsignarNombres.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				inicializarNombresArbitros(nombres);
-				int i = 0;
-				for(JTextField text : listaTextFields)
-				{
-				String aux=text.getText();
-					if(aux.length()!=0) {
-						nombres[i] = aux;
-					}
-					i++;
-				}
-				ocultarComponentes(asignacionDenombres);
-			}
-		});
 		
 		JButton botonAsignarAleatorio= new JButton("Asignar Nombres aleatorio");
 		botonAsignarAleatorio.setBounds(30, posicionEnY + 60, 200, 20);
@@ -207,47 +161,103 @@ public class Main {
 					arbitros[indiceElegido]=true;
 					}
 				}
-				ocultarComponentes(asignacionDenombres);
+				ocultarComponentes(asignacionDenombresUI);
 			}
 		});
-		
-		ocultarComponentes(asignacionDenombres);
-		panelDeAsignacion.setPreferredSize(new Dimension(254,alturaPanelAsignacion));
+
 		
 		
 		
-		JButton btnSalir = new JButton("Salir");
-		btnSalir.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				frame.dispose();
-				System.exit(0);
-				
-			}
-		});
-		btnSalir.setBounds(624, 541, 117, 25);
-		frame.getContentPane().add(btnSalir);
+		JButton botonAsignarNombres = new JButton("Asignar Nombres en orden");
+		botonAsignarNombres.setBounds(30, posicionEnY + 30, 200, 20);
+		panelDeAsignacion.add(botonAsignarNombres);
 		
-		//asignacion de estadisticas
-		
-		JButton btnMuestraEstadisticas = new JButton("Mostrar Estadisticas");
-		btnMuestraEstadisticas.addActionListener(new ActionListener() {
+		botonAsignarNombres.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Estadisticas estadisticas = new  Estadisticas(torneo,frame,nombres);
-				frame.setVisible(false);
-				estadisticas.setVisible();
+				inicializarNombresArbitros(nombres);
+				int i = 0;
+				for(JTextField text : listaTextFields)
+				{
+				String aux=text.getText();
+					if(aux.length()!=0) {
+						nombres[i] = aux;
+					}
+					i++;
+				}
+				ocultarComponentes(asignacionDenombresUI);
 			}
 		});
 		
-		btnMuestraEstadisticas.setBounds(38, 472, 325, 57);
-		frame.getContentPane().add(btnMuestraEstadisticas);
+		JButton botonMenuAsignarNombres = new JButton("Asignar nombre a los arbitros");
+		botonMenuAsignarNombres.setBounds(475, 16, 279, 57);
+		frame.getContentPane().add(botonMenuAsignarNombres);
+		botonMenuAsignarNombres.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(!asignacionDenombresUI.get(0).isVisible())
+					mostrarComponentes(asignacionDenombresUI);
+				else {
+					ocultarComponentes(asignacionDenombresUI);
+				}
+			}
+		});
 		
+		ocultarComponentes(asignacionDenombresUI);
+		agregarImagenDeFondo(imagenDeCancha);
+	}
+
+	private void agregarLaberYTextfiel(JPanel panelDeAsignacion, final JTextField[] listaTextFields, int posicionEnY,
+			int i , ArrayList<JComponent> asignacionDenombresUI) {
+		JLabel numeroDeArbitro = new JLabel("Nombre arbitro " + i);
+		numeroDeArbitro.setBounds(30,posicionEnY, 180,20);
+		panelDeAsignacion.add(numeroDeArbitro);
+		
+		JTextField nombreDelArbitro = new JTextField();
+		nombreDelArbitro.setBounds(150,posicionEnY, 100,20); 
+		panelDeAsignacion.add(nombreDelArbitro);
+		listaTextFields[i] = nombreDelArbitro;
+		nombreDelArbitro.setColumns(10);
+		
+		asignacionDenombresUI.add(numeroDeArbitro);
+		asignacionDenombresUI.add(nombreDelArbitro);
+	}
+
+	private void agregarImagenDeFondo(ImageIcon imagenDeCancha) {
 		JLabel imagenDeFondo = new JLabel("");
-		ImageIcon imagenDeCancha=escalarImagen(anchoFrame, altoFrame, new ImageIcon(pathAImagenFondo));
 		
 		imagenDeFondo.setIcon(imagenDeCancha);
 		imagenDeFondo.setBounds(0, 0, 784, 561);
 		frame.getContentPane().add(imagenDeFondo);
+	}
+
+	private void agregarPanelDeFechas(final Torneo torneo, final String[] nombres, int anchoFrame, int altoFrame) {
+		JLabel lblFechaDelCalendario = new JLabel("Fechas del calendario de partidos:");
+		lblFechaDelCalendario.setForeground(Color.WHITE);
+		lblFechaDelCalendario.setBounds(12, 12, 423, 15);
+		frame.getContentPane().add(lblFechaDelCalendario);
+		
+		JPanel panelFechas = new JPanel();
+		panelFechas.setBounds(12, 39, 325, 225);
+				
+		int anchoDelScroll = anchoFrame/2;
+		int altoDelScroll = altoFrame/2;
+		scrollPane.setBounds(12, 39, anchoDelScroll, altoDelScroll);
+		scrollPane.setViewportView(panelFechas);
+		frame.getContentPane().add(scrollPane);
+		
+		//agrego botones con fecha
+
+		int alturaDelPanelFechas=200;
+		int anchoDelPanelFechas = 360; 
+		for(int i=0; i<torneo.getCantFechas(); i++) {
+			JButton botonDeFecha = new JButton("Fecha " + (i+1));
+			actionListenerABotonDeFecha(torneo, i, botonDeFecha,nombres);
+			panelFechas.add(botonDeFecha);
+		}
+		
+		panelFechas.setPreferredSize(new Dimension(anchoDelPanelFechas,alturaDelPanelFechas));
+		int columnas = 3 ;
+		int filas= 0 ;
+		panelFechas.setLayout(new GridLayout(filas, columnas, 0, 0));
 	}
 
 	private void inicializarNombresArbitros(final String[] nombres) {
@@ -256,7 +266,7 @@ public class Main {
 		}
 	}
 
-	private void agregarActionListener(final Torneo torneo, final int i, JButton btnNewButton , final String[] nombres) {
+	private void actionListenerABotonDeFecha(final Torneo torneo, final int i, JButton btnNewButton , final String[] nombres) {
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
