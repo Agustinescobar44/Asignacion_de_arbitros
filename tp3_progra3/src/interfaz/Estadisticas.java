@@ -37,7 +37,7 @@ public class Estadisticas {
 		botonVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ventanaPrincipal.setVisible(true);
-				frame.setVisible(false);
+				frame.dispose();
 			}
 		});
 		botonVolver.setBounds(41, 11, 183, 35);
