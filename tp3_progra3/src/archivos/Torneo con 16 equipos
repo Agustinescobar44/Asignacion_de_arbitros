@@ -1,0 +1,1130 @@
+{
+  "listaEquipos": [
+    "River",
+    "Independiente",
+    "Racing",
+    "San Lorenzo",
+    "Huracan",
+    "Central",
+    "Newells",
+    "Gimnasia",
+    "Estudiantes",
+    "Colon",
+    "Union",
+    "Los pumas",
+    "San Miguel",
+    "Talleres",
+    "Sacachispas",
+    "Boca"
+  ],
+  "equipos": {
+    "Independiente": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Talleres": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Sacachispas": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Central": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "San Lorenzo": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Union": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Huracan": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Gimnasia": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "San Miguel": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Boca": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Newells": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Estudiantes": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Los pumas": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "River": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Colon": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Racing": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "fixture": [
+    {
+      "partidos": [
+        {
+          "equipo1": "Boca",
+          "equipo2": "Sacachispas",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "River",
+          "equipo2": "Talleres",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Independiente",
+          "equipo2": "San Miguel",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Racing",
+          "equipo2": "Los pumas",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Lorenzo",
+          "equipo2": "Union",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Huracan",
+          "equipo2": "Colon",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Central",
+          "equipo2": "Estudiantes",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Newells",
+          "equipo2": "Gimnasia",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 8,
+      "equipos": [
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes",
+        "Colon",
+        "Union",
+        "Los pumas",
+        "San Miguel",
+        "Talleres",
+        "Sacachispas",
+        "Boca"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Sacachispas",
+          "equipo2": "Talleres",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Boca",
+          "equipo2": "San Miguel",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "River",
+          "equipo2": "Los pumas",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Independiente",
+          "equipo2": "Union",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Racing",
+          "equipo2": "Colon",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Lorenzo",
+          "equipo2": "Estudiantes",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Huracan",
+          "equipo2": "Gimnasia",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Central",
+          "equipo2": "Newells",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 8,
+      "equipos": [
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes",
+        "Colon",
+        "Union",
+        "Los pumas",
+        "San Miguel",
+        "Talleres",
+        "Sacachispas",
+        "Boca"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Talleres",
+          "equipo2": "San Miguel",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Sacachispas",
+          "equipo2": "Los pumas",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Boca",
+          "equipo2": "Union",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "River",
+          "equipo2": "Colon",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Independiente",
+          "equipo2": "Estudiantes",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Racing",
+          "equipo2": "Gimnasia",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Lorenzo",
+          "equipo2": "Newells",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Huracan",
+          "equipo2": "Central",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 8,
+      "equipos": [
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes",
+        "Colon",
+        "Union",
+        "Los pumas",
+        "San Miguel",
+        "Talleres",
+        "Sacachispas",
+        "Boca"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "San Miguel",
+          "equipo2": "Los pumas",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Talleres",
+          "equipo2": "Union",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Sacachispas",
+          "equipo2": "Colon",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Boca",
+          "equipo2": "Estudiantes",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "River",
+          "equipo2": "Gimnasia",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Independiente",
+          "equipo2": "Newells",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Racing",
+          "equipo2": "Central",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Lorenzo",
+          "equipo2": "Huracan",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 8,
+      "equipos": [
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes",
+        "Colon",
+        "Union",
+        "Los pumas",
+        "San Miguel",
+        "Talleres",
+        "Sacachispas",
+        "Boca"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Los pumas",
+          "equipo2": "Union",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Miguel",
+          "equipo2": "Colon",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Talleres",
+          "equipo2": "Estudiantes",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Sacachispas",
+          "equipo2": "Gimnasia",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Boca",
+          "equipo2": "Newells",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "River",
+          "equipo2": "Central",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Independiente",
+          "equipo2": "Huracan",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Racing",
+          "equipo2": "San Lorenzo",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 8,
+      "equipos": [
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes",
+        "Colon",
+        "Union",
+        "Los pumas",
+        "San Miguel",
+        "Talleres",
+        "Sacachispas",
+        "Boca"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Union",
+          "equipo2": "Colon",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Los pumas",
+          "equipo2": "Estudiantes",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Miguel",
+          "equipo2": "Gimnasia",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Talleres",
+          "equipo2": "Newells",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Sacachispas",
+          "equipo2": "Central",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Boca",
+          "equipo2": "Huracan",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "River",
+          "equipo2": "San Lorenzo",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Independiente",
+          "equipo2": "Racing",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 8,
+      "equipos": [
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes",
+        "Colon",
+        "Union",
+        "Los pumas",
+        "San Miguel",
+        "Talleres",
+        "Sacachispas",
+        "Boca"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Colon",
+          "equipo2": "Estudiantes",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Union",
+          "equipo2": "Gimnasia",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Los pumas",
+          "equipo2": "Newells",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Miguel",
+          "equipo2": "Central",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Talleres",
+          "equipo2": "Huracan",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Sacachispas",
+          "equipo2": "San Lorenzo",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Boca",
+          "equipo2": "Racing",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "River",
+          "equipo2": "Independiente",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 8,
+      "equipos": [
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes",
+        "Colon",
+        "Union",
+        "Los pumas",
+        "San Miguel",
+        "Talleres",
+        "Sacachispas",
+        "Boca"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Estudiantes",
+          "equipo2": "Gimnasia",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Colon",
+          "equipo2": "Newells",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Union",
+          "equipo2": "Central",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Los pumas",
+          "equipo2": "Huracan",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Miguel",
+          "equipo2": "San Lorenzo",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Talleres",
+          "equipo2": "Racing",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Sacachispas",
+          "equipo2": "Independiente",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Boca",
+          "equipo2": "River",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 8,
+      "equipos": [
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes",
+        "Colon",
+        "Union",
+        "Los pumas",
+        "San Miguel",
+        "Talleres",
+        "Sacachispas",
+        "Boca"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Gimnasia",
+          "equipo2": "Newells",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Estudiantes",
+          "equipo2": "Central",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Colon",
+          "equipo2": "Huracan",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Union",
+          "equipo2": "San Lorenzo",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Los pumas",
+          "equipo2": "Racing",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Miguel",
+          "equipo2": "Independiente",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Talleres",
+          "equipo2": "River",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Sacachispas",
+          "equipo2": "Boca",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 8,
+      "equipos": [
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes",
+        "Colon",
+        "Union",
+        "Los pumas",
+        "San Miguel",
+        "Talleres",
+        "Sacachispas",
+        "Boca"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Newells",
+          "equipo2": "Central",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Gimnasia",
+          "equipo2": "Huracan",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Estudiantes",
+          "equipo2": "San Lorenzo",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Colon",
+          "equipo2": "Racing",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Union",
+          "equipo2": "Independiente",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Los pumas",
+          "equipo2": "River",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Miguel",
+          "equipo2": "Boca",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Talleres",
+          "equipo2": "Sacachispas",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 8,
+      "equipos": [
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes",
+        "Colon",
+        "Union",
+        "Los pumas",
+        "San Miguel",
+        "Talleres",
+        "Sacachispas",
+        "Boca"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Central",
+          "equipo2": "Huracan",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Newells",
+          "equipo2": "San Lorenzo",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Gimnasia",
+          "equipo2": "Racing",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Estudiantes",
+          "equipo2": "Independiente",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Colon",
+          "equipo2": "River",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Union",
+          "equipo2": "Boca",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Los pumas",
+          "equipo2": "Sacachispas",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Miguel",
+          "equipo2": "Talleres",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 8,
+      "equipos": [
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes",
+        "Colon",
+        "Union",
+        "Los pumas",
+        "San Miguel",
+        "Talleres",
+        "Sacachispas",
+        "Boca"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Huracan",
+          "equipo2": "San Lorenzo",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Central",
+          "equipo2": "Racing",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Newells",
+          "equipo2": "Independiente",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Gimnasia",
+          "equipo2": "River",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Estudiantes",
+          "equipo2": "Boca",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Colon",
+          "equipo2": "Sacachispas",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Union",
+          "equipo2": "Talleres",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Los pumas",
+          "equipo2": "San Miguel",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 8,
+      "equipos": [
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes",
+        "Colon",
+        "Union",
+        "Los pumas",
+        "San Miguel",
+        "Talleres",
+        "Sacachispas",
+        "Boca"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "San Lorenzo",
+          "equipo2": "Racing",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Huracan",
+          "equipo2": "Independiente",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Central",
+          "equipo2": "River",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Newells",
+          "equipo2": "Boca",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Gimnasia",
+          "equipo2": "Sacachispas",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Estudiantes",
+          "equipo2": "Talleres",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Colon",
+          "equipo2": "San Miguel",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Union",
+          "equipo2": "Los pumas",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 8,
+      "equipos": [
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes",
+        "Colon",
+        "Union",
+        "Los pumas",
+        "San Miguel",
+        "Talleres",
+        "Sacachispas",
+        "Boca"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Racing",
+          "equipo2": "Independiente",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Lorenzo",
+          "equipo2": "River",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Huracan",
+          "equipo2": "Boca",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Central",
+          "equipo2": "Sacachispas",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Newells",
+          "equipo2": "Talleres",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Gimnasia",
+          "equipo2": "San Miguel",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Estudiantes",
+          "equipo2": "Los pumas",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Colon",
+          "equipo2": "Union",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 8,
+      "equipos": [
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes",
+        "Colon",
+        "Union",
+        "Los pumas",
+        "San Miguel",
+        "Talleres",
+        "Sacachispas",
+        "Boca"
+      ]
+    },
+    {
+      "partidos": [
+        {
+          "equipo1": "Independiente",
+          "equipo2": "River",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Racing",
+          "equipo2": "Boca",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "San Lorenzo",
+          "equipo2": "Sacachispas",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Huracan",
+          "equipo2": "Talleres",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Central",
+          "equipo2": "San Miguel",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Newells",
+          "equipo2": "Los pumas",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Gimnasia",
+          "equipo2": "Union",
+          "arbitro": 0
+        },
+        {
+          "equipo1": "Estudiantes",
+          "equipo2": "Colon",
+          "arbitro": 0
+        }
+      ],
+      "cantPartidos": 8,
+      "equipos": [
+        "River",
+        "Independiente",
+        "Racing",
+        "San Lorenzo",
+        "Huracan",
+        "Central",
+        "Newells",
+        "Gimnasia",
+        "Estudiantes",
+        "Colon",
+        "Union",
+        "Los pumas",
+        "San Miguel",
+        "Talleres",
+        "Sacachispas",
+        "Boca"
+      ]
+    }
+  ],
+  "cantEquipos": 16
+}
