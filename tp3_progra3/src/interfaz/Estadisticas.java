@@ -3,9 +3,12 @@ package interfaz;
 import java.awt.Frame;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
 import estructuraDeDatos.Torneo;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -21,14 +24,7 @@ public class Estadisticas {
 	/**
 	 * Create the application.
 	 */
-	public Estadisticas(Torneo torneo, Frame ventanaPrincipal, String[] nombres) {
-		initialize(torneo , ventanaPrincipal , nombres);
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize(Torneo torneo, Frame ventanaPrincipal, String[] nombres) {
+	public Estadisticas(Torneo torneo, Frame ventanaPrincipal, String[] nombres , ImageIcon imagenDefondo) {
 		frame = new JFrame();
 		int anchoFrame=800;
 		int altoFrame = 600;
@@ -41,7 +37,7 @@ public class Estadisticas {
 		botonVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ventanaPrincipal.setVisible(true);
-				frame.dispose();
+				frame.setVisible(false);
 			}
 		});
 		botonVolver.setBounds(41, 11, 183, 35);
@@ -63,8 +59,16 @@ public class Estadisticas {
 		table = new JTable(data , encabezado);
 		
 		scrollPane.setViewportView(table);
+	
+		JLabel labelFondo = new JLabel("");
+				
+		labelFondo.setIcon(imagenDefondo);
+		labelFondo.setBounds(0, 0, 784, 561);
+		frame.getContentPane().add(labelFondo);
 		
+		frame.setVisible(false);
 	}
+
 
 	private void setData(Torneo torneo, String[][] data, String[] nombres) {
 		String[] listaDeEquipos = torneo.getListaDeEquipos();
