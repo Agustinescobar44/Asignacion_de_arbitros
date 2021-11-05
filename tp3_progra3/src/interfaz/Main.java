@@ -2,7 +2,6 @@ package interfaz;
 
 import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -69,7 +68,6 @@ public class Main {
 		int anchoFrame=800;
 		int altoFrame = 600;
 		
-		ImageIcon imagenDeCancha=escalarImagen(anchoFrame, altoFrame, new ImageIcon(pathAImagenFondo));		
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
@@ -81,6 +79,8 @@ public class Main {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null); //centra la ventana
+		frame.setResizable(false);
+		
 		
 		JButton btnSalir = new JButton("Salir");
 		btnSalir.addMouseListener(new MouseAdapter() {
@@ -94,7 +94,7 @@ public class Main {
 		frame.getContentPane().add(btnSalir);
 		
 		//Interfaz de las fechas-----------------------------
-		agregarPanelDeFechas(torneo, nombres, anchoFrame, altoFrame , imagenDeCancha);
+		agregarPanelDeFechas(torneo, nombres, anchoFrame, altoFrame);
 		
 		
 		
@@ -104,7 +104,7 @@ public class Main {
 		btnMuestraEstadisticas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
-				Estadisticas estadisticas = new  Estadisticas(torneo,frame,nombres , imagenDeCancha);
+				Estadisticas estadisticas = new  Estadisticas(torneo,frame,nombres);
 				estadisticas.setVisible();
 			}
 		});
@@ -130,9 +130,9 @@ public class Main {
 		botonMenuAsignarNombres.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!asignacionDenombresUI.get(0).isVisible())
-					mostrarComponentes(asignacionDenombresUI);
+					Utilidades.mostrarComponentes(asignacionDenombresUI);
 				else {
-					ocultarComponentes(asignacionDenombresUI);
+					Utilidades.ocultarComponentes(asignacionDenombresUI);
 				}
 			}
 		});
@@ -151,11 +151,7 @@ public class Main {
 		
 		asignacionDenombresUI.add(scrollDeAsginacion);
 		asignacionDenombresUI.add(panelDeAsignacion);
-		
-		
-		
-		
-	
+
 		int posicionEnY = 5;
 		for (int i = 0; i < torneo.getCantFechas()/2+1; i++) {
 			agregarLabelYTextfield(panelDeAsignacion, listaTextFields, posicionEnY, i,asignacionDenombresUI);
@@ -176,7 +172,7 @@ public class Main {
 					}
 					i++;
 				}
-				ocultarComponentes(asignacionDenombresUI);
+				Utilidades.ocultarComponentes(asignacionDenombresUI);
 			}
 		});
 		panelDeAsignacion.add(botonAsignarNombres);
@@ -201,7 +197,7 @@ public class Main {
 					arbitros[indiceElegido]=true;
 					}
 				}
-				ocultarComponentes(asignacionDenombresUI);
+				Utilidades.ocultarComponentes(asignacionDenombresUI);
 			}
 		});
 		panelDeAsignacion.add(botonAsignarAleatorio);
@@ -210,8 +206,9 @@ public class Main {
 		
 		
 		
-		ocultarComponentes(asignacionDenombresUI);
-		agregarImagenDeFondo(imagenDeCancha);
+		Utilidades.ocultarComponentes(asignacionDenombresUI);
+		ImageIcon imagenDeFondo = new ImageIcon(pathAImagenFondo);
+		Utilidades.agregarImagenDeFondo(frame, imagenDeFondo);
 	}
 
 	private void agregarLabelYTextfield(JPanel panelDeAsignacion, final JTextField[] listaTextFields, int posicionEnY,
@@ -235,7 +232,7 @@ public class Main {
 		asignacionDenombresUI.add(nombreDelArbitro);
 	}
 
-	private void agregarPanelDeFechas(final Torneo torneo, final String[] nombres, int anchoFrame, int altoFrame ,ImageIcon imagenDeFondo) {
+	private void agregarPanelDeFechas(final Torneo torneo, final String[] nombres, int anchoFrame, int altoFrame ) {
 		JLabel lblFechaDelCalendario = new JLabel("Fechas del calendario de partidos:");
 		lblFechaDelCalendario.setForeground(Color.WHITE);
 		lblFechaDelCalendario.setBounds(12, 12, 423, 15);
@@ -256,7 +253,7 @@ public class Main {
 		int anchoDelPanelFechas = 360; 
 		for(int i=0; i<torneo.getCantFechas(); i++) {
 			JButton botonDeFecha = new JButton("Fecha " + (i+1));
-			actionListenerABotonFecha(torneo, i, botonDeFecha,nombres , imagenDeFondo);
+			actionListenerABotonFecha(torneo, i, botonDeFecha,nombres);
 			panelFechas.add(botonDeFecha);
 		}
 		
@@ -272,11 +269,11 @@ public class Main {
 		}
 	}
 
-	private void actionListenerABotonFecha(final Torneo torneo, final int i, JButton btnNewButton , final String[] nombres , ImageIcon imagenDeFondo) {
+	private void actionListenerABotonFecha(final Torneo torneo, final int i, JButton btnNewButton , final String[] nombres ) {
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PartidosDeFecha partidosDeFecha= new PartidosDeFecha(torneo.getFecha(i),frame, nombres,i , imagenDeFondo);
+				PartidosDeFecha partidosDeFecha= new PartidosDeFecha(torneo.getFecha(i),frame, nombres,i);
 				frame.setVisible(false);
 				partidosDeFecha.setVisible();
 			}
@@ -285,33 +282,6 @@ public class Main {
 	
 	//utilidades
 	
-	private void mostrarComponentes(ArrayList<JComponent> componentes) {
-			for (JComponent jComponent : componentes) {
-				jComponent.setVisible(true);
-			}
-	}
-	private void ocultarComponentes(ArrayList<JComponent> componentes) {
-		for (JComponent jComponent : componentes) {
-			jComponent.setVisible(false);
-		}
-	}
-	private ImageIcon escalarImagen(int ancho , int alto, ImageIcon img) {
-		//consigo el ancho y el alto del escalado
-		
-		//transgformo la imagenicon a image para escalar
-		Image tempImage = img.getImage();
-		
-		//la escalo
-		Image tempCambiada = tempImage.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
-		
-		//retorno la image como imageicon
-		return (new ImageIcon(tempCambiada));
-	}
-	private void agregarImagenDeFondo(ImageIcon imagenDeCancha) {
-		JLabel imagenDeFondo = new JLabel("");
-		
-		imagenDeFondo.setIcon(imagenDeCancha);
-		imagenDeFondo.setBounds(0, 0, 784, 561);
-		frame.getContentPane().add(imagenDeFondo);
-	}
+	
+
 }

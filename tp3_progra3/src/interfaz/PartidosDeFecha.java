@@ -23,7 +23,7 @@ public class PartidosDeFecha {
 
 	private JFrame frame;
 	private JTable table;
-
+	private String pathAImagenDeFondo = "tp3_progra3\\src\\imagenes\\cancha.jpg";
 
 
 	/**
@@ -33,7 +33,7 @@ public class PartidosDeFecha {
 	 * @param nombres 
 	 * @param imagenDeFondo 
 	 */
-	public PartidosDeFecha(Fecha fecha, JFrame ventanaPrincipal, String[] nombres , int i, ImageIcon imagenDeFondo ) {
+	public PartidosDeFecha(Fecha fecha, JFrame ventanaPrincipal, String[] nombres , int i ) {
 		int anchoDelFrame = 800;
 		int altoDelFrame = 600;
 		frame = new JFrame();
@@ -90,11 +90,8 @@ public class PartidosDeFecha {
 		
 		scrollPane.setViewportView(table);
 		
-		JLabel labelFondo = new JLabel("");
-		
-		labelFondo.setIcon(imagenDeFondo);
-		labelFondo.setBounds(0, 0, 784, 561);
-		frame.getContentPane().add(labelFondo);
+		ImageIcon imagenDeFondo = new ImageIcon(pathAImagenDeFondo);
+		Utilidades.agregarImagenDeFondo(frame, imagenDeFondo);
 	}
 
 	

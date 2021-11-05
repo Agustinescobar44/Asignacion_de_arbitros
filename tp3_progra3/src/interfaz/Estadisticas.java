@@ -3,7 +3,6 @@ package interfaz;
 import java.awt.Frame;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
 import estructuraDeDatos.Torneo;
@@ -18,13 +17,13 @@ public class Estadisticas {
 
 	private JFrame frame;
 	private JTable table;
-
+	private String pathAImagenFondo ="tp3_progra3\\src\\imagenes\\cancha.jpg"; 
 
 
 	/**
 	 * Create the application.
 	 */
-	public Estadisticas(Torneo torneo, Frame ventanaPrincipal, String[] nombres , ImageIcon imagenDefondo) {
+	public Estadisticas(Torneo torneo, Frame ventanaPrincipal, String[] nombres) {
 		frame = new JFrame();
 		int anchoFrame=800;
 		int altoFrame = 600;
@@ -60,11 +59,8 @@ public class Estadisticas {
 		
 		scrollPane.setViewportView(table);
 	
-		JLabel labelFondo = new JLabel("");
-				
-		labelFondo.setIcon(imagenDefondo);
-		labelFondo.setBounds(0, 0, 784, 561);
-		frame.getContentPane().add(labelFondo);
+		ImageIcon imagenDeFondo = new ImageIcon(pathAImagenFondo);
+		Utilidades.agregarImagenDeFondo(frame ,imagenDeFondo);
 	}
 
 
