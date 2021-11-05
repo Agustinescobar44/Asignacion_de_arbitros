@@ -1,6 +1,5 @@
 package interfaz;
 import javax.swing.JFrame;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -41,6 +40,7 @@ public class PartidosDeFecha {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null); //centra la ventana
+		frame.setResizable(false);
 		
 		JButton botonVolver = new JButton("Volver");
 		botonVolver.addActionListener(new ActionListener() {
@@ -90,8 +90,7 @@ public class PartidosDeFecha {
 		
 		scrollPane.setViewportView(table);
 		
-		ImageIcon imagenDeFondo = new ImageIcon(pathAImagenDeFondo);
-		Utilidades.agregarImagenDeFondo(frame, imagenDeFondo);
+		Utilidades.agregarImagenDeFondo(frame, pathAImagenDeFondo);
 	}
 
 	

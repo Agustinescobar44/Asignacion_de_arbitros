@@ -17,7 +17,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.UIManager;
 import javax.swing.JTextField;
-import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -207,8 +206,7 @@ public class Main {
 		
 		
 		Utilidades.ocultarComponentes(asignacionDenombresUI);
-		ImageIcon imagenDeFondo = new ImageIcon(pathAImagenFondo);
-		Utilidades.agregarImagenDeFondo(frame, imagenDeFondo);
+		Utilidades.agregarImagenDeFondo(frame, pathAImagenFondo);
 	}
 
 	private void agregarLabelYTextfield(JPanel panelDeAsignacion, final JTextField[] listaTextFields, int posicionEnY,
@@ -279,9 +277,5 @@ public class Main {
 			}
 		});
 	}
-	
-	//utilidades
-	
-	
 
 }

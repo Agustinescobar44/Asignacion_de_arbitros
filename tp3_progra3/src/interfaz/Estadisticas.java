@@ -7,7 +7,6 @@ import javax.swing.JScrollPane;
 
 import estructuraDeDatos.Torneo;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -31,6 +30,7 @@ public class Estadisticas {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
+		frame.setResizable(false);
 		
 		JButton botonVolver = new JButton("Volver");
 		botonVolver.addActionListener(new ActionListener() {
@@ -59,8 +59,7 @@ public class Estadisticas {
 		
 		scrollPane.setViewportView(table);
 	
-		ImageIcon imagenDeFondo = new ImageIcon(pathAImagenFondo);
-		Utilidades.agregarImagenDeFondo(frame ,imagenDeFondo);
+		Utilidades.agregarImagenDeFondo(frame ,pathAImagenFondo);
 	}
 
 

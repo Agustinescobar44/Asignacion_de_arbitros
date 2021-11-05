@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class Utilidades {
-
+	
 	static void agregarImagenDeFondo(JFrame frame , ImageIcon imagen) {
 		ImageIcon imagenDeFondo = escalarImagen(frame.getHeight(), frame.getWidth(), imagen);
 		
@@ -19,8 +19,17 @@ public class Utilidades {
 		labelFondo.setBounds(0, 0, frame.getWidth(), frame.getHeight());
 		frame.getContentPane().add(labelFondo);
 	}
+	static void agregarImagenDeFondo(JFrame frame , String pathAImagen) {
+		ImageIcon imagenDeFondo = escalarImagen(frame.getHeight(), frame.getWidth(), new ImageIcon(pathAImagen));
+		
+		JLabel labelFondo = new JLabel("");
+		
+		labelFondo.setIcon(imagenDeFondo);
+		labelFondo.setBounds(0, 0, frame.getWidth(), frame.getHeight());
+		frame.getContentPane().add(labelFondo);
+	}
 	
-	private static ImageIcon escalarImagen(int alto,int ancho, ImageIcon imagen) {
+	static ImageIcon escalarImagen(int alto,int ancho, ImageIcon imagen) {
 		//transgformo la imagenicon a image para escalar
 		Image tempImage = imagen.getImage();
 				
