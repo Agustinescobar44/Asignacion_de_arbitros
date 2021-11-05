@@ -1,5 +1,6 @@
 package interfaz;
 import javax.swing.JFrame;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -30,18 +31,9 @@ public class PartidosDeFecha {
 	 * @param fecha 
 	 * @param ventanaPrincipal 
 	 * @param nombres 
+	 * @param imagenDeFondo 
 	 */
-	public PartidosDeFecha(Fecha fecha, JFrame ventanaPrincipal, String[] nombres , int i ) {
-		initialize(fecha , ventanaPrincipal , nombres , i);
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 * @param fecha 
-	 * @param ventanaPrincipal 
-	 * @param nombres 
-	 */
-	private void initialize(Fecha fecha, final JFrame ventanaPrincipal, String[] nombres , int i) {
+	public PartidosDeFecha(Fecha fecha, JFrame ventanaPrincipal, String[] nombres , int i, ImageIcon imagenDeFondo ) {
 		int anchoDelFrame = 800;
 		int altoDelFrame = 600;
 		frame = new JFrame();
@@ -97,7 +89,14 @@ public class PartidosDeFecha {
 		table.setRowHeight(50);
 		
 		scrollPane.setViewportView(table);
+		
+		JLabel labelFondo = new JLabel("");
+		
+		labelFondo.setIcon(imagenDeFondo);
+		labelFondo.setBounds(0, 0, 784, 561);
+		frame.getContentPane().add(labelFondo);
 	}
+
 	
 	private void asignarData(Fecha fecha, String[][] data, String[] nombres) {
 		for (int i = 0; i < data.length; i++) {

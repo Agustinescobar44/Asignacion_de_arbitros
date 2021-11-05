@@ -82,9 +82,6 @@ public class Main {
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null); //centra la ventana
 		
-		//Interfaz de las fechas-----------------------------
-		agregarPanelDeFechas(torneo, nombres, anchoFrame, altoFrame);
-		
 		JButton btnSalir = new JButton("Salir");
 		btnSalir.addMouseListener(new MouseAdapter() {
 			@Override
@@ -96,7 +93,12 @@ public class Main {
 		btnSalir.setBounds(594, 497, 160, 42);
 		frame.getContentPane().add(btnSalir);
 		
-		//Creacion de estadisticas--------------------------------------------------------
+		//Interfaz de las fechas-----------------------------
+		agregarPanelDeFechas(torneo, nombres, anchoFrame, altoFrame , imagenDeCancha);
+		
+		
+		
+		//estadisticas--------------------------------------------------------
 		
 		JButton btnMuestraEstadisticas = new JButton("Mostrar Estadisticas");
 		btnMuestraEstadisticas.addActionListener(new ActionListener() {
@@ -233,15 +235,7 @@ public class Main {
 		asignacionDenombresUI.add(nombreDelArbitro);
 	}
 
-	private void agregarImagenDeFondo(ImageIcon imagenDeCancha) {
-		JLabel imagenDeFondo = new JLabel("");
-		
-		imagenDeFondo.setIcon(imagenDeCancha);
-		imagenDeFondo.setBounds(0, 0, 784, 561);
-		frame.getContentPane().add(imagenDeFondo);
-	}
-
-	private void agregarPanelDeFechas(final Torneo torneo, final String[] nombres, int anchoFrame, int altoFrame) {
+	private void agregarPanelDeFechas(final Torneo torneo, final String[] nombres, int anchoFrame, int altoFrame ,ImageIcon imagenDeFondo) {
 		JLabel lblFechaDelCalendario = new JLabel("Fechas del calendario de partidos:");
 		lblFechaDelCalendario.setForeground(Color.WHITE);
 		lblFechaDelCalendario.setBounds(12, 12, 423, 15);
@@ -262,7 +256,7 @@ public class Main {
 		int anchoDelPanelFechas = 360; 
 		for(int i=0; i<torneo.getCantFechas(); i++) {
 			JButton botonDeFecha = new JButton("Fecha " + (i+1));
-			actionListenerABotonFecha(torneo, i, botonDeFecha,nombres);
+			actionListenerABotonFecha(torneo, i, botonDeFecha,nombres , imagenDeFondo);
 			panelFechas.add(botonDeFecha);
 		}
 		
@@ -278,11 +272,11 @@ public class Main {
 		}
 	}
 
-	private void actionListenerABotonFecha(final Torneo torneo, final int i, JButton btnNewButton , final String[] nombres) {
+	private void actionListenerABotonFecha(final Torneo torneo, final int i, JButton btnNewButton , final String[] nombres , ImageIcon imagenDeFondo) {
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PartidosDeFecha partidosDeFecha= new PartidosDeFecha(torneo.getFecha(i),frame, nombres,i);
+				PartidosDeFecha partidosDeFecha= new PartidosDeFecha(torneo.getFecha(i),frame, nombres,i , imagenDeFondo);
 				frame.setVisible(false);
 				partidosDeFecha.setVisible();
 			}
@@ -312,5 +306,12 @@ public class Main {
 		
 		//retorno la image como imageicon
 		return (new ImageIcon(tempCambiada));
+	}
+	private void agregarImagenDeFondo(ImageIcon imagenDeCancha) {
+		JLabel imagenDeFondo = new JLabel("");
+		
+		imagenDeFondo.setIcon(imagenDeCancha);
+		imagenDeFondo.setBounds(0, 0, 784, 561);
+		frame.getContentPane().add(imagenDeFondo);
 	}
 }

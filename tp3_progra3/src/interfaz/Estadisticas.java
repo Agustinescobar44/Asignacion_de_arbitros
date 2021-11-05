@@ -65,8 +65,6 @@ public class Estadisticas {
 		labelFondo.setIcon(imagenDefondo);
 		labelFondo.setBounds(0, 0, 784, 561);
 		frame.getContentPane().add(labelFondo);
-		
-		frame.setVisible(false);
 	}
 
 
