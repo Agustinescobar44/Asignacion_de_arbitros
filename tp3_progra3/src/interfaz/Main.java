@@ -2,6 +2,7 @@ package interfaz;
 
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -16,8 +17,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.UIManager;
+import javax.swing.plaf.FontUIResource;
 import javax.swing.JTextField;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.GridLayout;
@@ -27,6 +30,11 @@ public class Main {
 
 	private JFrame frame;
 	final JScrollPane scrollPane;
+	private String pathAImagenFondo = "tp3_progra3\\src\\imagenes\\cancha.jpg";
+	private Font fuentePrincipal= new Font("Leelawadee UI", Font.PLAIN, 14);
+	
+	private ArrayList<JComponent> asignacionDenombresUI = new ArrayList<>();
+	private JPanel panelDeAsignacion = new JPanel();
 
 	/**
 	 * Launch the application.
@@ -63,12 +71,15 @@ public class Main {
 		inicializarNombresArbitros(nombres);
 		
 		final ArrayList<JComponent> asignacionDenombresUI = new ArrayList<>();
-		String pathAImagenFondo = "tp3_progra3\\src\\imagenes\\cancha.jpg";
+		
 		int anchoFrame=800;
 		int altoFrame = 600;
 		
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+			UIManager.put("Button.font", new FontUIResource(fuentePrincipal));
+			UIManager.put("Label.font", new FontUIResource(fuentePrincipal));
+			UIManager.put("TextField.font", new FontUIResource(fuentePrincipal));
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -79,7 +90,6 @@ public class Main {
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null); //centra la ventana
 		frame.setResizable(false);
-		
 		
 		JButton btnSalir = new JButton("Salir");
 		btnSalir.addMouseListener(new MouseAdapter() {
@@ -115,11 +125,20 @@ public class Main {
 		
 		//Asignacion de nombres a los arbitros---------------------------------------------
 		
-		//alturaPanelAsignacion =cantidad de arbitros * tamaño del label + tamaño de los botones
-		int altoPanelAsignacion=torneo.getCantEquipos()/2*40 + 20; 
-		int anchoPanelAsignacion=254; 
+		//variables
+		
 		int altoScrollAsignacion = 300;
 		int anchoScrollAsignacion = 300;
+		
+		int altoDeLosBotones = 30;
+		int anchoDeLosBotones = 200;
+		
+		int altoDelLabelTextFiel = 25;
+		int anchoDelLabel = 120;
+		int anchodelTextField = 100;
+
+		int altoPanelAsignacion= torneo.getCantArbitros() * 40 +40; 
+		int anchoPanelAsignacion=254;
 		
 		final JTextField[] listaTextFields = new JTextField[torneo.getCantFechas()/2+1];
 		
@@ -142,8 +161,6 @@ public class Main {
 		scrollDeAsginacion.setBounds(xDelScrollAsignacion, 85, anchoScrollAsignacion, altoScrollAsignacion);
 		frame.getContentPane().add(scrollDeAsginacion);
 		
-		
-		JPanel panelDeAsignacion = new JPanel();
 		scrollDeAsginacion.setViewportView(panelDeAsignacion);
 		panelDeAsignacion.setLayout(null);
 		panelDeAsignacion.setPreferredSize(new Dimension(anchoPanelAsignacion,altoPanelAsignacion));
@@ -151,14 +168,14 @@ public class Main {
 		asignacionDenombresUI.add(scrollDeAsginacion);
 		asignacionDenombresUI.add(panelDeAsignacion);
 
-		int posicionEnY = 5;
+		int posicionEnY = 10;
 		for (int i = 0; i < torneo.getCantFechas()/2+1; i++) {
-			agregarLabelYTextfield(panelDeAsignacion, listaTextFields, posicionEnY, i,asignacionDenombresUI);
+			agregarLabelYTextfield(listaTextFields, posicionEnY, i ,altoDelLabelTextFiel,anchoDelLabel , anchodelTextField);
 			posicionEnY +=30;
 		}
 		
 		JButton botonAsignarNombres = new JButton("Asignar Nombres en orden");
-		botonAsignarNombres.setBounds(30, posicionEnY + 30, 200, 20);
+		botonAsignarNombres.setBounds(30, posicionEnY + 30, anchoDeLosBotones, altoDeLosBotones);
 		botonAsignarNombres.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				inicializarNombresArbitros(nombres);
@@ -177,7 +194,7 @@ public class Main {
 		panelDeAsignacion.add(botonAsignarNombres);
 		
 		JButton botonAsignarAleatorio= new JButton("Asignar Nombres aleatorio");
-		botonAsignarAleatorio.setBounds(30, posicionEnY + 60, 200, 20);		
+		botonAsignarAleatorio.setBounds(30, posicionEnY + 70, 200, 30);		
 		botonAsignarAleatorio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				inicializarNombresArbitros(nombres);
@@ -200,26 +217,20 @@ public class Main {
 			}
 		});
 		panelDeAsignacion.add(botonAsignarAleatorio);
-		
-		
-		
-		
-		
+
 		Utilidades.ocultarComponentes(asignacionDenombresUI);
 		Utilidades.agregarImagenDeFondo(frame, pathAImagenFondo);
 	}
 
-	private void agregarLabelYTextfield(JPanel panelDeAsignacion, final JTextField[] listaTextFields, int posicionEnY,
-			int i , ArrayList<JComponent> asignacionDenombresUI) {
-		
-		int altoDelComponente = 20;
-		
+	private void agregarLabelYTextfield( final JTextField[] listaTextFields, int posicionEnY,
+			int i, int altoDelComponente , int anchoDellabel, int anchoDelTextField) {
+
 		JLabel numeroDeArbitro = new JLabel("Nombre arbitro: " + i);
-		numeroDeArbitro.setBounds(30,posicionEnY, 180,altoDelComponente);
+		numeroDeArbitro.setBounds(30,posicionEnY, anchoDellabel,altoDelComponente);
 		
 		
 		JTextField nombreDelArbitro = new JTextField();
-		nombreDelArbitro.setBounds(150,posicionEnY, 100,altoDelComponente); 
+		nombreDelArbitro.setBounds(150,posicionEnY, anchoDelTextField,altoDelComponente); 
 		listaTextFields[i] = nombreDelArbitro;
 		nombreDelArbitro.setColumns(10);
 		
@@ -251,6 +262,7 @@ public class Main {
 		int anchoDelPanelFechas = 360; 
 		for(int i=0; i<torneo.getCantFechas(); i++) {
 			JButton botonDeFecha = new JButton("Fecha " + (i+1));
+			botonDeFecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			actionListenerABotonFecha(torneo, i, botonDeFecha,nombres);
 			panelFechas.add(botonDeFecha);
 		}
