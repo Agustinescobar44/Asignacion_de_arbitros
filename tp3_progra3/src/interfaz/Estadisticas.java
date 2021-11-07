@@ -28,7 +28,7 @@ public class Estadisticas {
 	/**
 	 * Create the application.
 	 */
-	public Estadisticas(Torneo torneo, Frame ventanaPrincipal, String[] nombres) {
+	public Estadisticas(Torneo torneo, final Frame ventanaPrincipal, String[] nombres) {
 		frame = new JFrame();
 		int anchoFrame=800;
 		int altoFrame = 600;

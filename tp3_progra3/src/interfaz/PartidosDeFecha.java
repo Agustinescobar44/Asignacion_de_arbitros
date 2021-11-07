@@ -32,7 +32,7 @@ public class PartidosDeFecha {
 	 * @param nombres 
 	 * @param imagenDeFondo 
 	 */
-	public PartidosDeFecha(Fecha fecha, JFrame ventanaPrincipal, String[] nombres , int i ) {
+	public PartidosDeFecha(Fecha fecha, final JFrame ventanaPrincipal, String[] nombres , int i ) {
 		int anchoDelFrame = 800;
 		int altoDelFrame = 600;
 		frame = new JFrame();
