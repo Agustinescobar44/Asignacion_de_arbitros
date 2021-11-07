@@ -39,7 +39,7 @@ public class Estadisticas {
 		frame = new JFrame();
 		int anchoFrame=800;
 		int altoFrame = 600;
-		int altoScrollRecurrencia = 300;
+		int altoScrollRecurrencia = 250;
 		int anchoScrollRecurrencia = 660;
 		
 		frame.setBounds(100, 100, anchoFrame, altoFrame);
