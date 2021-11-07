@@ -44,20 +44,6 @@ public class Jsons {
 		}
 		return ret;
 	}
-/*	public  static Equipo[] leerEquipoDeJson(String nombre) {
-		
-		Gson gson = new Gson();
-		Equipo[] ret = null;
-		
-		try {
-			BufferedReader br = new BufferedReader(new FileReader(path+nombre));
-			ret = gson.fromJson(br, Equipo[].class);
-			
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		return ret;
-	}*/
 	
 	public static void generarJSON(String nombre , Torneo t) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -83,16 +69,4 @@ public class Jsons {
 			System.out.println(e);
 		}
 	}
-/*	public static void generarJSON(String nombre , Equipo[] equipo) {
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String json = gson.toJson(equipo);
-		
-		try {
-			FileWriter writer = new FileWriter(path+nombre);
-			writer.write(json);
-			writer.close();
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-	}*/
 }
