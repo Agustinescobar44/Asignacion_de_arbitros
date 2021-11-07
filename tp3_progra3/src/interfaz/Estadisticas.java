@@ -23,6 +23,7 @@ public class Estadisticas {
 	private JTable table;
 	private String pathAImagenFondo ="tp3_progra3\\src\\imagenes\\cancha.jpg"; 
 	private Font fuentePrincipal= new Font("Leelawadee UI", Font.PLAIN, 16);
+	private JTable tablaArbitros;
 
 
 	/**
@@ -52,7 +53,7 @@ public class Estadisticas {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setFont(fuentePrincipal);
-		scrollPane.setBounds(44, 68, 663, 337);
+		scrollPane.setBounds(41, 68, 685, 256);
 		frame.getContentPane().add(scrollPane);
 		
 		String[][] data = new String[torneo.getCantEquipos()][3];
@@ -65,6 +66,26 @@ public class Estadisticas {
 		}
 		
 		table = new JTable(data , encabezado);
+		configurarJTable(table);
+		
+		scrollPane.setViewportView(table);
+		
+		JScrollPane scrollTablaArbitros = new JScrollPane();
+		scrollTablaArbitros.setBounds(41, 354, 685, 184);
+		frame.getContentPane().add(scrollTablaArbitros);
+		
+		String[][] dataArbitros = new String[torneo.getCantEquipos()/2][2];
+		String[] encabezadoArbitros= {"Arbitro" , "Cantidad de Equipos dirigidos"};
+		
+		tablaArbitros = new JTable(dataArbitros, encabezadoArbitros);
+		configurarJTable(tablaArbitros);
+		scrollTablaArbitros.setViewportView(tablaArbitros);
+	
+		Utilidades.agregarImagenDeFondo(frame ,pathAImagenFondo);
+	}
+
+
+	private void configurarJTable(JTable table) {
 		JTableHeader header = table.getTableHeader(); 
 		
 		header.setFont(fuentePrincipal.deriveFont(Font.BOLD));
@@ -76,10 +97,6 @@ public class Estadisticas {
 		table.setFillsViewportHeight(true);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		table.setRowHeight(30);
-		
-		scrollPane.setViewportView(table);
-	
-		Utilidades.agregarImagenDeFondo(frame ,pathAImagenFondo);
 	}
 
 
