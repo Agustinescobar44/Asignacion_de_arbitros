@@ -33,6 +33,7 @@ public class Torneo
 		}
 		this.fixture = new Fecha[cantEquipos-1];
 		this.generarFixture();
+		equiposPorArbitro=new HashMap<Integer,Set<String>>();
 	}
 
 	//Aplico el algoritmo mostrado en: https://es.wikipedia.org/wiki/Sistema_de_todos_contra_todos
