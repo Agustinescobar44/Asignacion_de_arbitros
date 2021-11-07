@@ -22,18 +22,20 @@ public class Estadisticas {
 	private JTable table;
 	private String pathAImagenFondo ="tp3_progra3\\src\\imagenes\\cancha.jpg"; 
 	private String fuentePrincipal= "Leelawadee UI";
+	private JTable tablaArbitros;
 
 
 	/**
 	 * Create the application.
 	 */
-	public Estadisticas(Torneo torneo, Frame ventanaPrincipal, String[] nombres) {
+	public Estadisticas(Torneo torneo, final Frame ventanaPrincipal, String[] nombres) {
 		try {
 			Utilidades.setearFuente(fuentePrincipal, 16);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 		
+
 		frame = new JFrame();
 		int anchoFrame=800;
 		int altoFrame = 600;
@@ -71,6 +73,26 @@ public class Estadisticas {
 		}
 		
 		table = new JTable(data , encabezado);
+		configurarJTable(table);
+		
+		scrollPane.setViewportView(table);
+		
+		JScrollPane scrollTablaArbitros = new JScrollPane();
+		scrollTablaArbitros.setBounds(41, 354, 685, 184);
+		frame.getContentPane().add(scrollTablaArbitros);
+		
+		String[][] dataArbitros = new String[torneo.getCantEquipos()/2][2];
+		String[] encabezadoArbitros= {"Arbitro" , "Cantidad de Equipos dirigidos"};
+		
+		tablaArbitros = new JTable(dataArbitros, encabezadoArbitros);
+		configurarJTable(tablaArbitros);
+		scrollTablaArbitros.setViewportView(tablaArbitros);
+	
+		Utilidades.agregarImagenDeFondo(frame ,pathAImagenFondo);
+	}
+
+
+	private void configurarJTable(JTable table) {
 		JTableHeader header = table.getTableHeader(); 
 		
 		header.setOpaque(false);
@@ -80,10 +102,6 @@ public class Estadisticas {
 		table.setFillsViewportHeight(true);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		table.setRowHeight(30);
-		
-		scrollPane.setViewportView(table);
-	
-		Utilidades.agregarImagenDeFondo(frame ,pathAImagenFondo);
 	}
 
 

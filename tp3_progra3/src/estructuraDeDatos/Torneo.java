@@ -2,7 +2,9 @@ package estructuraDeDatos;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import metodos.Chequear;
 
@@ -12,6 +14,7 @@ public class Torneo
 	Map<String, int[]> equipos;
 	Fecha[] fixture;
 	int cantEquipos;
+	Map<Integer,Set<String>> equiposPorArbitro;
 	
 	public Torneo(String[] nombres)
 	{
@@ -30,6 +33,7 @@ public class Torneo
 		}
 		this.fixture = new Fecha[cantEquipos-1];
 		this.generarFixture();
+		equiposPorArbitro=new HashMap<Integer,Set<String>>();
 	}
 
 	//Aplico el algoritmo mostrado en: https://es.wikipedia.org/wiki/Sistema_de_todos_contra_todos
@@ -128,5 +132,31 @@ public class Torneo
 		builder.append(Arrays.toString(fixture));
 
 		return builder.toString();
+	}
+	
+	public void asignarEquipo(String equipo, int arbitro) {
+		if(this.equiposPorArbitro.containsKey(arbitro)) {
+			this.equiposPorArbitro.get(arbitro).add(equipo);
+		}
+		else {
+			Set<String> set=new HashSet<String>();
+			set.add(equipo);
+			this.equiposPorArbitro.put(arbitro, set);
+		}
+	}
+	
+	public Map<Integer, Set<String>> getEquiposPorArbitro() {
+		Map<Integer, Set<String>> ret= new HashMap<Integer, Set<String>>();
+		
+		Set<Integer> arbitros=this.equiposPorArbitro.keySet();
+		for(Integer arbitro: arbitros) {
+			HashSet<String> copiaEquipos=new HashSet<String>();
+			for(String equipo: this.equiposPorArbitro.get(arbitro)) {
+				copiaEquipos.add(equipo);
+			}
+			ret.put(arbitro, copiaEquipos);
+		}
+		
+		return ret;
 	}
 }
