@@ -9,8 +9,6 @@ import estructuraDeDatos.Torneo;
 
 public class AsignarArbitros {
 	
-	static Set<Integer> arbitrosMarcados;
-	
 	private static void chequearTorneo(Torneo t) {
 		if(t.getCantEquipos() < 2)
 			throw new IllegalArgumentException("los equipos deben ser mas de 1");
@@ -21,8 +19,8 @@ public class AsignarArbitros {
 	}
 	
 	// Asigno los arbitos para cada fecha del torneo
-	public static void asignarArbitros(String path) {
-		Torneo t = Jsons.leerTorneoDeJson(path);
+	public static void asignarArbitros(String nombre) {
+		Torneo t = Jsons.leerTorneoDeJson(nombre);
 
 		chequearTorneo(t);
 		
@@ -40,7 +38,7 @@ public class AsignarArbitros {
 
 	//le asigno arbitro a cada partido de la fecha
 	private static void asignarArbitrosAFecha(Fecha f, Torneo t) {
-		arbitrosMarcados = new HashSet<Integer>();
+		Set<Integer> arbitrosMarcados = new HashSet<Integer>();
 		for (Partido partido : f.getPartidos()) {
 			asignarArbitroAPartido(partido,arbitrosMarcados, t);
 		}
