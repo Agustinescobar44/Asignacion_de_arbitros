@@ -135,6 +135,7 @@ public class Torneo
 	}
 	
 	public void asignarEquipo(String equipo, int arbitro) {
+		Chequear.arbitro(arbitro, this.getCantEquipos()/2);
 		if(this.equiposPorArbitro.containsKey(arbitro)) {
 			this.equiposPorArbitro.get(arbitro).add(equipo);
 		}
