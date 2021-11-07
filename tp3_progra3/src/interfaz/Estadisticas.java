@@ -14,7 +14,6 @@ import javax.swing.JTable;
 import javax.swing.table.JTableHeader;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Cursor;
 
 public class Estadisticas {
@@ -22,16 +21,25 @@ public class Estadisticas {
 	private JFrame frame;
 	private JTable table;
 	private String pathAImagenFondo ="tp3_progra3\\src\\imagenes\\cancha.jpg"; 
-	private Font fuentePrincipal= new Font("Leelawadee UI", Font.PLAIN, 16);
+	private String fuentePrincipal= "Leelawadee UI";
 
 
 	/**
 	 * Create the application.
 	 */
 	public Estadisticas(Torneo torneo, Frame ventanaPrincipal, String[] nombres) {
+		try {
+			Utilidades.setearFuente(fuentePrincipal, 16);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
 		frame = new JFrame();
 		int anchoFrame=800;
 		int altoFrame = 600;
+		int altoScrollRecurrencia = 300;
+		int anchoScrollRecurrencia = 660;
+		
 		frame.setBounds(100, 100, anchoFrame, altoFrame);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -40,7 +48,6 @@ public class Estadisticas {
 		
 		JButton botonVolver = new JButton("Volver");
 		botonVolver.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		botonVolver.setFont(fuentePrincipal);
 		botonVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ventanaPrincipal.setVisible(true);
@@ -51,8 +58,7 @@ public class Estadisticas {
 		frame.getContentPane().add(botonVolver);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setFont(fuentePrincipal);
-		scrollPane.setBounds(44, 68, 663, 337);
+		scrollPane.setBounds(44, 68, anchoScrollRecurrencia, altoScrollRecurrencia);
 		frame.getContentPane().add(scrollPane);
 		
 		String[][] data = new String[torneo.getCantEquipos()][3];
@@ -67,12 +73,10 @@ public class Estadisticas {
 		table = new JTable(data , encabezado);
 		JTableHeader header = table.getTableHeader(); 
 		
-		header.setFont(fuentePrincipal.deriveFont(Font.BOLD));
 		header.setOpaque(false);
 		header.setBackground(new Color(0, 128, 0));
 		
 		table.setCellSelectionEnabled(false);
-		table.setFont(fuentePrincipal);
 		table.setFillsViewportHeight(true);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		table.setRowHeight(30);

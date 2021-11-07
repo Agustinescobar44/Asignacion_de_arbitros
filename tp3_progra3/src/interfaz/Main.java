@@ -2,7 +2,6 @@ package interfaz;
 
 import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -17,7 +16,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.UIManager;
-import javax.swing.plaf.FontUIResource;
 import javax.swing.JTextField;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -31,7 +29,7 @@ public class Main {
 	private JFrame frame;
 	final JScrollPane scrollPane;
 	private String pathAImagenFondo = "tp3_progra3\\src\\imagenes\\cancha.jpg";
-	private Font fuentePrincipal= new Font("Leelawadee UI", Font.PLAIN, 14);
+	private String fuentePrincipal= "Leelawadee UI";
 	
 	private ArrayList<JComponent> asignacionDenombresUI = new ArrayList<>();
 	private JPanel panelDeAsignacion = new JPanel();
@@ -77,9 +75,7 @@ public class Main {
 		
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-			UIManager.put("Button.font", new FontUIResource(fuentePrincipal));
-			UIManager.put("Label.font", new FontUIResource(fuentePrincipal));
-			UIManager.put("TextField.font", new FontUIResource(fuentePrincipal));
+			Utilidades.setearFuente(fuentePrincipal, 14);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
