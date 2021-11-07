@@ -70,9 +70,7 @@ public class AsignarArbitros {
 		}
 		t.setArbitro(partido, arbitroElegido);
 		arbitrosMarcados.add(arbitroElegido);
-
+		t.asignarEquipo(equipoa, arbitroElegido);
+		t.asignarEquipo(equipob, arbitroElegido);
 	}
-	
-	
-
 }
