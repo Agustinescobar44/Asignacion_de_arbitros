@@ -463,5 +463,6 @@
       ]
     }
   ],
-  "cantEquipos": 10
+  "cantEquipos": 10,
+  "equiposPorArbitro": {}
 }
