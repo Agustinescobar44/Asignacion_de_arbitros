@@ -1,5 +1,6 @@
 package interfaz;
 
+import java.awt.Font;
 import java.awt.Image;
 import java.util.ArrayList;
 
@@ -7,6 +8,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.UIManager;
+import javax.swing.plaf.FontUIResource;
 
 public class Utilidades {
 	
@@ -48,5 +51,13 @@ public class Utilidades {
 		for (JComponent jComponent : componentes) {
 			jComponent.setVisible(false);
 		}
+	}
+
+	static void setearFuente(String fuente , int tamaño) {
+		UIManager.put("Button.font", new FontUIResource(new Font(fuente, Font.PLAIN, tamaño)));
+		UIManager.put("Label.font", new FontUIResource(new Font(fuente, Font.PLAIN, tamaño)));
+		UIManager.put("TextField.font", new FontUIResource(new Font(fuente, Font.PLAIN, tamaño)));
+		UIManager.put("Table.font", new FontUIResource(new Font(fuente, Font.PLAIN, tamaño)));
+		UIManager.put("TableHeader.font", new FontUIResource(new Font(fuente, Font.BOLD, tamaño)));
 	}
 }
