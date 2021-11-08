@@ -1,13 +1,8 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.Set;
 import org.junit.Test;
-
 import estructuraDeDatos.Fecha;
 import estructuraDeDatos.Partido;
 import estructuraDeDatos.Torneo;
