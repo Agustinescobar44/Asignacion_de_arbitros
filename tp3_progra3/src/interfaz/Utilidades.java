@@ -56,13 +56,13 @@ public class Utilidades {
 		}
 	}
 
-	static void setearFuente(String fuente , int tamaño) {
-		UIManager.put("Button.font", new FontUIResource(new Font(fuente, Font.PLAIN, tamaño)));
-		UIManager.put("Label.font", new FontUIResource(new Font(fuente, Font.PLAIN, tamaño)));
-		UIManager.put("TextField.font", new FontUIResource(new Font(fuente, Font.PLAIN, tamaño)));
-		UIManager.put("Table.font", new FontUIResource(new Font(fuente, Font.PLAIN, tamaño)));
-		UIManager.put("TableHeader.font", new FontUIResource(new Font(fuente, Font.BOLD, tamaño)));
-		UIManager.put("Spinner.font", new FontUIResource(new Font(fuente, Font.PLAIN, tamaño)));
+	static void setearFuente(String fuente , int tamano) {
+		UIManager.put("Button.font", new FontUIResource(new Font(fuente, Font.PLAIN, tamano)));
+		UIManager.put("Label.font", new FontUIResource(new Font(fuente, Font.PLAIN, tamano)));
+		UIManager.put("TextField.font", new FontUIResource(new Font(fuente, Font.PLAIN, tamano)));
+		UIManager.put("Table.font", new FontUIResource(new Font(fuente, Font.PLAIN, tamano)));
+		UIManager.put("TableHeader.font", new FontUIResource(new Font(fuente, Font.BOLD, tamano)));
+		UIManager.put("Spinner.font", new FontUIResource(new Font(fuente, Font.PLAIN, tamano)));
 	}
 
 }
