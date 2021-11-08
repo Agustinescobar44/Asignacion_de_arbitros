@@ -90,7 +90,7 @@ public class Estadisticas {
 			dataArbitros[i][1]=""+cantEquiposPorArbitro(i,torneo);
 		}
 		
-		String[] encabezadoArbitros= {"Arbitro" , "Cantidad de Equipos dirigidos"};
+		String[] encabezadoArbitros= {"Arbitro" , "Cantidad de Equipos distintos dirigidos"};
 		
 		tablaArbitros = new JTable(dataArbitros, encabezadoArbitros);
 		configurarJTable(tablaArbitros);
