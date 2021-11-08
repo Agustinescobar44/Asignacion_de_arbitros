@@ -76,6 +76,7 @@ public class Main {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 			Utilidades.setearFuente(fuentePrincipal, 14);
+			
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -88,6 +89,7 @@ public class Main {
 		frame.setResizable(false);
 		
 		JButton btnSalir = new JButton("Salir");
+		btnSalir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnSalir.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -106,6 +108,7 @@ public class Main {
 		//estadisticas--------------------------------------------------------
 		
 		JButton btnMuestraEstadisticas = new JButton("Mostrar Estadisticas");
+		btnMuestraEstadisticas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnMuestraEstadisticas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -139,6 +142,7 @@ public class Main {
 		final JTextField[] listaTextFields = new JTextField[torneo.getCantFechas()/2+1];
 		
 		JButton botonMenuAsignarNombres = new JButton("Asignar nombre a los arbitros");
+		botonMenuAsignarNombres.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		botonMenuAsignarNombres.setBounds(475, 16, 280, 57);
 		frame.getContentPane().add(botonMenuAsignarNombres);
 		botonMenuAsignarNombres.addActionListener(new ActionListener() {
@@ -171,6 +175,7 @@ public class Main {
 		}
 		
 		JButton botonAsignarNombres = new JButton("Asignar Nombres en orden");
+		botonAsignarNombres.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		botonAsignarNombres.setBounds(30, posicionEnY + 30, anchoDeLosBotones, altoDeLosBotones);
 		botonAsignarNombres.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -190,11 +195,12 @@ public class Main {
 		panelDeAsignacion.add(botonAsignarNombres);
 		
 		JButton botonAsignarAleatorio= new JButton("Asignar Nombres aleatorio");
+		botonAsignarAleatorio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		botonAsignarAleatorio.setBounds(30, posicionEnY + 70, 200, 30);		
 		botonAsignarAleatorio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				inicializarNombresArbitros(nombres);
-				int cantArbitros=(torneo.getCantEquipos()/2)-1;
+				int cantArbitros=(torneo.getCantEquipos()/2);
 				boolean[] arbitros=new boolean[cantArbitros];
 				Random random=new Random();
 				for(JTextField text : listaTextFields)
@@ -279,7 +285,7 @@ public class Main {
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PartidosDeFecha partidosDeFecha= new PartidosDeFecha(torneo.getFecha(i),frame, nombres,i);
+				PartidosDeFecha partidosDeFecha= new PartidosDeFecha(torneo.getFecha(i),frame, nombres,i , torneo);
 				frame.setVisible(false);
 				partidosDeFecha.setVisible();
 			}
