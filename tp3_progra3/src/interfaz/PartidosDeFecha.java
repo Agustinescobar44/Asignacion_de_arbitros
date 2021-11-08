@@ -1,6 +1,7 @@
 package interfaz;
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
@@ -102,22 +103,26 @@ public class PartidosDeFecha {
 		scrollPane.setViewportView(table);
 
 		
-		final JSpinner spinner = new JSpinner();
-		spinner.setModel(new SpinnerListModel(partidos));
-		spinner.setBounds(121, 494, 123, 40);
-		frame.getContentPane().add(spinner);
+		final JSpinner spinnerPrimerPartido = new JSpinner();
+		spinnerPrimerPartido.setModel(new SpinnerListModel(partidos));
+		spinnerPrimerPartido.setBounds(121, 494, 123, 40);
+		JFormattedTextField spinnerTextField= ((JSpinner.DefaultEditor) spinnerPrimerPartido.getEditor()).getTextField();
+		spinnerTextField.setEditable(false);
+		frame.getContentPane().add(spinnerPrimerPartido);
 		
-		final JSpinner spinner_1 = new JSpinner();
-		spinner_1.setBounds(262, 494, 123, 40);
-		spinner_1.setModel(new SpinnerListModel(partidos));
-		frame.getContentPane().add(spinner_1);
+		final JSpinner spinnerSegundoPartido = new JSpinner();
+		spinnerSegundoPartido.setBounds(262, 494, 123, 40);
+		spinnerSegundoPartido.setModel(new SpinnerListModel(partidos));
+		spinnerTextField= ((JSpinner.DefaultEditor) spinnerSegundoPartido.getEditor()).getTextField();
+		spinnerTextField.setEditable(false);
+		frame.getContentPane().add(spinnerSegundoPartido);
 		
 		
 		JButton botonCambiarArbitro = new JButton("Cambiar Arbitro");
 		botonCambiarArbitro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int spiner1 = partidos.indexOf(spinner.getValue());
-				int spiner2 = partidos.indexOf(spinner_1.getValue());
+				int spiner1 = partidos.indexOf(spinnerPrimerPartido.getValue());
+				int spiner2 = partidos.indexOf(spinnerSegundoPartido.getValue());
 				
 				if(spiner1 != spiner2) {
 					if (nombres.length<1) {
