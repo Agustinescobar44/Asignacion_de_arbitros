@@ -1,9 +1,15 @@
 package test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 import org.junit.Test;
+
+import estructuraDeDatos.Fecha;
+import estructuraDeDatos.Partido;
 import estructuraDeDatos.Torneo;
 import metodos.AsignarArbitros;
 import metodos.Jsons;
@@ -43,6 +49,27 @@ public class AsignarArbitrosTest {
 		assertTrue(aux.get(0).contains("Boca"));
 		assertTrue(aux.get(0).contains("river"));
 		
+	}
+	
+	@Test
+	public void proArbitrosPrimeraFecha() {
+		Torneo t=new Torneo(crear4Equipos());
+		
+		AsignarArbitros.asignarArbitros(t);
+		Fecha fecha = t.getFecha(0);
+		ArrayList<Partido> partidos = fecha.getPartidos();
+		
+		assertEquals(0, partidos.get(0).getArbitro());
+		assertEquals(1, partidos.get(1).getArbitro());
+	}
+	
+	@Test
+	public void testAsignarArbitro() {
+		Torneo t=new Torneo(crear4Equipos());
+		
+		AsignarArbitros.asignarArbitros(t);
+		
+		Assert.asignarArbitro(t);
 	}
 	
 	private String[] crear4Equipos() {

@@ -14,10 +14,9 @@ public class Assert {
 		}
 	}
 
-	public static void todosConArbitroDiferente(Torneo torneo) {
+	static void todosConArbitroDiferente(Torneo torneo) {
 		int cantArbitros = torneo.getCantEquipos()/2;
 		int[] arbitrosMarcados = new int[cantArbitros];
-		
 		for(int i = 0 ; i<torneo.getCantFechas() ; i++) {
 			arbitrosMarcados = new int[cantArbitros];
 			for(int j = 0 ; j<torneo.getFecha(i).getCantPartidos() ; j++) {
@@ -29,7 +28,15 @@ public class Assert {
 				assertEquals(1, arbitrosMarcados[j]);
 			}
 		}
-		
+	}
+
+	static void asignarArbitro(Torneo t) {
+		assertEquals(0, t.getFecha(0).getPartido(0).getArbitro());
+		assertEquals(1, t.getFecha(0).getPartido(1).getArbitro());
+		assertEquals(0, t.getFecha(1).getPartido(0).getArbitro());
+		assertEquals(1, t.getFecha(1).getPartido(1).getArbitro());
+		assertEquals(0, t.getFecha(2).getPartido(0).getArbitro());
+		assertEquals(1, t.getFecha(2).getPartido(1).getArbitro());
 	}
 	
 	
