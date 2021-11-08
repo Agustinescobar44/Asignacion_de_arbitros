@@ -9,6 +9,8 @@ import estructuraDeDatos.Torneo;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Map;
+import java.util.Set;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.table.JTableHeader;
@@ -82,7 +84,12 @@ public class Estadisticas {
 		scrollTablaArbitros.setBounds(20, 354, anchoScrollRecurrencia, 185);
 		frame.getContentPane().add(scrollTablaArbitros);
 		
-		String[][] dataArbitros = new String[torneo.getCantEquipos()/2][2];
+		String[][] dataArbitros = new String[torneo.getCantArbitros()][2];
+		for(int i=0; i<torneo.getCantArbitros() ; i++) {
+			dataArbitros[i][0]=nombres[i];
+			dataArbitros[i][1]=""+cantEquiposPorArbitro(i,torneo);
+		}
+		
 		String[] encabezadoArbitros= {"Arbitro" , "Cantidad de Equipos dirigidos"};
 		
 		tablaArbitros = new JTable(dataArbitros, encabezadoArbitros);
@@ -90,6 +97,16 @@ public class Estadisticas {
 		scrollTablaArbitros.setViewportView(tablaArbitros);
 	
 		Utilidades.agregarImagenDeFondo(frame ,pathAImagenFondo);
+	}
+
+
+	private int cantEquiposPorArbitro(int arbitro, Torneo torneo) {
+		Map<Integer, Set<String>> datos=torneo.getEquiposPorArbitro();
+		int ret=0;
+		for(@SuppressWarnings("unused") String Equipo:datos.get(arbitro)) {
+			ret++;
+		}
+		return ret;
 	}
 
 
