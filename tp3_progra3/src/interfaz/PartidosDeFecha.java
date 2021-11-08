@@ -38,7 +38,7 @@ public class PartidosDeFecha {
 	 * @param nombres 
 	 * @param imagenDeFondo 
 	 */
-	public PartidosDeFecha(Fecha fecha, final JFrame ventanaPrincipal, String[] nombres , int i , Torneo t) {
+	public PartidosDeFecha(final Fecha fecha, final JFrame ventanaPrincipal, final String[] nombres , int i , final Torneo t) {
 		int anchoDelFrame = 800;
 		int altoDelFrame = 600;
 		frame = new JFrame();
@@ -95,19 +95,19 @@ public class PartidosDeFecha {
 		
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		table.setRowHeight(50);
-		ArrayList<String> partidos = new ArrayList<>();
+		final ArrayList<String> partidos = new ArrayList<>();
 		for (int j = 0; j < t.getFecha(i).getCantPartidos(); j++) {
 			partidos.add("Partido: "+j);
 		}
 		scrollPane.setViewportView(table);
 
 		
-		JSpinner spinner = new JSpinner();
+		final JSpinner spinner = new JSpinner();
 		spinner.setModel(new SpinnerListModel(partidos));
 		spinner.setBounds(121, 494, 123, 40);
 		frame.getContentPane().add(spinner);
 		
-		JSpinner spinner_1 = new JSpinner();
+		final JSpinner spinner_1 = new JSpinner();
 		spinner_1.setBounds(262, 494, 123, 40);
 		spinner_1.setModel(new SpinnerListModel(partidos));
 		frame.getContentPane().add(spinner_1);
