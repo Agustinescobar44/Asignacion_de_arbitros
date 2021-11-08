@@ -6,16 +6,22 @@ import javax.swing.JScrollPane;
 
 import estructuraDeDatos.Fecha;
 import estructuraDeDatos.Partido;
+import estructuraDeDatos.Torneo;
 
 import javax.swing.JTable;
+import javax.swing.SpinnerListModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import javax.swing.JSpinner;
+import javax.swing.border.TitledBorder;
+import javax.swing.border.LineBorder;
 
 
 public class PartidosDeFecha {
@@ -23,7 +29,7 @@ public class PartidosDeFecha {
 	private JFrame frame;
 	private JTable table;
 	private String pathAImagenDeFondo = "tp3_progra3\\src\\imagenes\\cancha.jpg";
-
+	private String fuentePrincipal= "Leelawadee UI";
 
 	/**
 	 * Create the application.
@@ -32,10 +38,11 @@ public class PartidosDeFecha {
 	 * @param nombres 
 	 * @param imagenDeFondo 
 	 */
-	public PartidosDeFecha(Fecha fecha, final JFrame ventanaPrincipal, String[] nombres , int i ) {
+	public PartidosDeFecha(Fecha fecha, final JFrame ventanaPrincipal, String[] nombres , int i , Torneo t) {
 		int anchoDelFrame = 800;
 		int altoDelFrame = 600;
 		frame = new JFrame();
+		frame.getContentPane().setFont(new Font("Leelawadee UI", Font.BOLD, 14));
 		frame.setBounds(100, 100, anchoDelFrame, altoDelFrame);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -49,18 +56,19 @@ public class PartidosDeFecha {
 				ventanaPrincipal.setVisible(true);
 			}
 		});
-		botonVolver.setBounds(10, 11, 89, 23);
+		botonVolver.setBounds(44, 15, 117, 46);
 		frame.getContentPane().add(botonVolver);
 		
 
-		JLabel lblNewLabel = new JLabel("Partidos de Fecha: " + (i+1));
-
-		lblNewLabel.setBounds(137, 15, 178, 15);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel labelNumeroFecha = new JLabel("Partidos de Fecha: " + (i+1));
 		
-		JButton botonCambiarArbitro = new JButton("Cambiar Arbitro");
-		botonCambiarArbitro.setBounds(567, 527, 124, 23);
-		frame.getContentPane().add(botonCambiarArbitro);
+		labelNumeroFecha.setBounds(279, 15, 231, 42);
+		labelNumeroFecha.setForeground(Color.WHITE);
+		labelNumeroFecha.setFont(new Font(fuentePrincipal, Font.PLAIN, 20));
+		frame.getContentPane().add(labelNumeroFecha);
+		
+		
+		
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(44, 68, 663, 337);
@@ -87,9 +95,57 @@ public class PartidosDeFecha {
 		
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		table.setRowHeight(50);
-		
+		ArrayList<String> partidos = new ArrayList<>();
+		for (int j = 0; j < t.getFecha(i).getCantPartidos(); j++) {
+			partidos.add("Partido: "+j);
+		}
 		scrollPane.setViewportView(table);
+
 		
+		JSpinner spinner = new JSpinner();
+		spinner.setModel(new SpinnerListModel(partidos));
+		spinner.setBounds(121, 494, 123, 40);
+		frame.getContentPane().add(spinner);
+		
+		JSpinner spinner_1 = new JSpinner();
+		spinner_1.setBounds(262, 494, 123, 40);
+		spinner_1.setModel(new SpinnerListModel(partidos));
+		frame.getContentPane().add(spinner_1);
+		
+		
+		JButton botonCambiarArbitro = new JButton("Cambiar Arbitro");
+		botonCambiarArbitro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int spiner1 = partidos.indexOf(spinner.getValue());
+				int spiner2 = partidos.indexOf(spinner_1.getValue());
+				
+				if(spiner1 != spiner2) {
+					if (nombres.length<1) {
+						int aux = fecha.getPartido(spiner1).getArbitro();
+						table.setValueAt(""+fecha.getPartido(spiner2).getArbitro(), spiner1, 2);
+						table.setValueAt(""+aux, spiner2, 2);
+					}
+					else {
+						String aux = nombres[fecha.getPartido(spiner1).getArbitro()];
+						table.setValueAt(nombres[fecha.getPartido(spiner2).getArbitro()], spiner1, 2);
+						table.setValueAt(""+aux, spiner2, 2);
+					}
+					
+					t.cambiarArbitro(fecha.getPartido(spiner1), fecha.getPartido(spiner2));
+				}	
+			}
+		});
+		botonCambiarArbitro.setBounds(410, 490, 212, 46);
+		frame.getContentPane().add(botonCambiarArbitro);
+		
+		JLabel bordeDeCambiarArbitro = new JLabel("");
+		bordeDeCambiarArbitro.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), 
+				"Cambiar arbitros entre partidos", 
+				TitledBorder.CENTER, TitledBorder.TOP, 
+				new Font(fuentePrincipal , Font.BOLD, 16), 
+				new Color(255, 255, 255)));
+		bordeDeCambiarArbitro.setBounds(104, 457, 535, 89);
+		frame.getContentPane().add(bordeDeCambiarArbitro);
 		Utilidades.agregarImagenDeFondo(frame, pathAImagenDeFondo);
 	}
 
@@ -130,5 +186,4 @@ public class PartidosDeFecha {
 	        columnModel.getColumn(column).setPreferredWidth(width);
 	    }
 	}
-	
 }
