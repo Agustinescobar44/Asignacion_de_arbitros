@@ -41,17 +41,6 @@ public class AsignarArbitrosTest {
 	}
 	
 	@Test
-	public void EquiposXArbitro() {
-		Torneo t=new Torneo(crear4Equipos());
-		t.asignarEquipo("Boca", 0);
-		t.asignarEquipo("river", 0);
-		Map<Integer, Set<String>> aux= t.getEquiposPorArbitro();
-		assertTrue(aux.get(0).contains("Boca"));
-		assertTrue(aux.get(0).contains("river"));
-		
-	}
-	
-	@Test
 	public void proArbitrosPrimeraFecha() {
 		Torneo t=new Torneo(crear4Equipos());
 		
