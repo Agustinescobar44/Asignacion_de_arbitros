@@ -22,6 +22,7 @@ public class Utilidades {
 		labelFondo.setBounds(0, 0, frame.getWidth(), frame.getHeight());
 		frame.getContentPane().add(labelFondo);
 	}
+	
 	static void agregarImagenDeFondo(JFrame frame , String pathAImagen) {
 		ImageIcon imagenDeFondo = escalarImagen(frame.getHeight(), frame.getWidth(), new ImageIcon(pathAImagen));
 		
@@ -33,7 +34,7 @@ public class Utilidades {
 	}
 	
 	static ImageIcon escalarImagen(int alto,int ancho, ImageIcon imagen) {
-		//transgformo la imagenicon a image para escalar
+		//transformo la imagenicon a image para escalar
 		Image tempImage = imagen.getImage();
 				
 		//la escalo
@@ -42,11 +43,13 @@ public class Utilidades {
 		//retorno la image como imageicon
 		return (new ImageIcon(tempCambiada));
 	}
+	
 	static void mostrarComponentes(ArrayList<JComponent> componentes) {
 		for (JComponent jComponent : componentes) {
 			jComponent.setVisible(true);
 		}
 	}
+	
 	static void ocultarComponentes(ArrayList<JComponent> componentes) {
 		for (JComponent jComponent : componentes) {
 			jComponent.setVisible(false);
@@ -59,5 +62,7 @@ public class Utilidades {
 		UIManager.put("TextField.font", new FontUIResource(new Font(fuente, Font.PLAIN, tamaño)));
 		UIManager.put("Table.font", new FontUIResource(new Font(fuente, Font.PLAIN, tamaño)));
 		UIManager.put("TableHeader.font", new FontUIResource(new Font(fuente, Font.BOLD, tamaño)));
+		UIManager.put("Spinner.font", new FontUIResource(new Font(fuente, Font.PLAIN, tamaño)));
 	}
+
 }
