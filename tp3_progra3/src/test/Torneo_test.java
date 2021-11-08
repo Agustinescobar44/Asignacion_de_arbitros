@@ -2,6 +2,9 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.util.Map;
+import java.util.Set;
+
 import org.junit.Test;
 
 import estructuraDeDatos.Fecha;
@@ -62,6 +65,7 @@ public class Torneo_test {
 	@Test (expected = IllegalArgumentException.class)
 	public void equipos_impares_test()
 	{
+		@SuppressWarnings("unused")
 		Torneo t = generarTorneo (5);
 	}
 	
@@ -69,6 +73,7 @@ public class Torneo_test {
 	public void equipos_null()
 	{
 		String[] equipos = new String[0];
+		@SuppressWarnings("unused")
 		Torneo t = new Torneo(equipos);
 	}
 	
@@ -77,6 +82,7 @@ public class Torneo_test {
 	{
 		String[] equipos = new String[2];
 		equipos[0] = "1";
+		@SuppressWarnings("unused")
 		Torneo t = new Torneo(equipos);
 	}
 	
@@ -112,5 +118,20 @@ public class Torneo_test {
 		
 		Torneo ret = new Torneo(equipos);
 		return ret;
+	}
+	
+	@Test
+	public void asignarEquipoAarbitro0() {
+		String a = "Boca";
+		String b = "river";
+		String c = "Independiente";
+		String d = "Racing";
+		String[] equipos = {a,b,c,d};
+		Torneo t=new Torneo(equipos);
+		t.asignarEquipo("Boca", 0);
+		t.asignarEquipo("river", 0);
+		Map<Integer, Set<String>> aux= t.getEquiposPorArbitro();
+		assertTrue(aux.get(0).contains("Boca"));
+		assertTrue(aux.get(0).contains("river"));
 	}
 }
