@@ -15,6 +15,7 @@ import javax.swing.table.JTableHeader;
 
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Font;
 
 public class Estadisticas {
 
@@ -39,8 +40,8 @@ public class Estadisticas {
 		frame = new JFrame();
 		int anchoFrame=800;
 		int altoFrame = 600;
-		int altoScrollRecurrencia = 250;
-		int anchoScrollRecurrencia = 660;
+		int altoScrollRecurrencia = 200;
+		int anchoScrollRecurrencia = 750;
 		
 		frame.setBounds(100, 100, anchoFrame, altoFrame);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,11 +61,11 @@ public class Estadisticas {
 		frame.getContentPane().add(botonVolver);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(44, 68, anchoScrollRecurrencia, altoScrollRecurrencia);
+		scrollPane.setBounds(20, 68, anchoScrollRecurrencia, altoScrollRecurrencia);
 		frame.getContentPane().add(scrollPane);
 		
-		String[][] data = new String[torneo.getCantEquipos()][3];
-		String[] encabezado= {"Equipo" , "Arbitro mas recurrente" , "Arbitro menos recurrente"};
+		String[][] data = new String[torneo.getCantEquipos()][5];
+		String[] encabezado= {"Equipo" , "Arbitro + recurrente" ,"Veces", "Arbitro - recurrente" , "Veces"};
 		
 		if(nombres.length == 0)
 			setData(torneo , data ) ;
@@ -78,7 +79,7 @@ public class Estadisticas {
 		scrollPane.setViewportView(table);
 		
 		JScrollPane scrollTablaArbitros = new JScrollPane();
-		scrollTablaArbitros.setBounds(41, 354, 685, 184);
+		scrollTablaArbitros.setBounds(20, 354, anchoScrollRecurrencia, 185);
 		frame.getContentPane().add(scrollTablaArbitros);
 		
 		String[][] dataArbitros = new String[torneo.getCantEquipos()/2][2];
@@ -97,6 +98,7 @@ public class Estadisticas {
 		
 		header.setOpaque(false);
 		header.setBackground(new Color(0, 128, 0));
+		header.setFont(new Font(fuentePrincipal, Font.BOLD, 12));
 		
 		table.setCellSelectionEnabled(false);
 		table.setFillsViewportHeight(true);
@@ -111,7 +113,9 @@ public class Estadisticas {
 			int[] listaDeArbitros = torneo.getArbitrosEquipo(listaDeEquipos[i]);
 			data[i][0] = listaDeEquipos[i];
 			data[i][1] = nombres[arbitroMasRecurente(listaDeArbitros)];
-			data[i][2] = nombres[arbitroMenosRecurrente(listaDeArbitros)];
+			data[i][2] = ""+torneo.getArbitrosEquipo(listaDeEquipos[i])[arbitroMasRecurente(listaDeArbitros)];
+			data[i][3] = nombres[arbitroMenosRecurrente(listaDeArbitros)];
+			data[i][4] = ""+torneo.getArbitrosEquipo(listaDeEquipos[i])[arbitroMenosRecurrente(listaDeArbitros)];
 			
 		}
 		
