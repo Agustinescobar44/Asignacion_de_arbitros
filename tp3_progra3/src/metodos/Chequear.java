@@ -17,7 +17,7 @@ public class Chequear {
 	public static void partido(int partido, int limite)
 	{
 		if(partido < 0 || partido > limite-1)
-			throw new IllegalArgumentException("Los partidos estan entre el 0 y el " + (limite) + ".");
+			throw new IllegalArgumentException("Los partidos estan entre el 0 y el " + (limite) + "." + "El tuyo fue "+ partido);
 	}
 	
 	public static void equipos(String[] equipos)
