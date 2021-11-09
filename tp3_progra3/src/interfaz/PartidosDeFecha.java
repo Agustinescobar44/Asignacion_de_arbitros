@@ -1,4 +1,5 @@
 package interfaz;
+
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
@@ -23,7 +24,6 @@ import java.awt.Font;
 import javax.swing.JSpinner;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.LineBorder;
-
 
 public class PartidosDeFecha {
 
