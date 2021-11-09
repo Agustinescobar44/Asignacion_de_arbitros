@@ -51,14 +51,14 @@ public class AsignarArbitros {
 		String equipoa = partido.getEquipo1();
 		String equipob = partido.getEquipo2();
 		
-		int promedio = 100000000; //temporal
+		int promedio= -1;
 		int arbitroElegido = -1;
 		
 		for (int i = 0 ; i< t.getCantEquipos()/2 ; i++) {
 			
 			int suma = t.getArbitrosEquipo(equipoa)[i] + t.getArbitrosEquipo(equipob)[i];
-			
-			if(suma < promedio && !arbitrosMarcados.contains(i)) { 
+
+			if((suma < promedio || promedio ==-1) && !arbitrosMarcados.contains(i)) { 
 				arbitroElegido = i;
 				promedio = suma;
 			}
