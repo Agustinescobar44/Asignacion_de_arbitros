@@ -153,7 +153,7 @@ public class Torneo
 		for(Integer arbitro: arbitros) {
 			HashSet<String> copiaEquipos=new HashSet<String>();
 			for(String equipo: this.equiposPorArbitro.get(arbitro)) {
-				copiaEquipos.add(equipo);
+				copiaEquipos.add(new String(equipo));
 			}
 			ret.put(arbitro, copiaEquipos);
 		}
