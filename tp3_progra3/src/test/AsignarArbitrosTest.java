@@ -1,13 +1,8 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.Set;
 import org.junit.Test;
-
 import estructuraDeDatos.Fecha;
 import estructuraDeDatos.Partido;
 import estructuraDeDatos.Torneo;
@@ -41,18 +36,8 @@ public class AsignarArbitrosTest {
 	}
 	
 	@Test
-	public void EquiposXArbitro() {
-		Torneo t=new Torneo(crear4Equipos());
-		t.asignarEquipo("Boca", 0);
-		t.asignarEquipo("river", 0);
-		Map<Integer, Set<String>> aux= t.getEquiposPorArbitro();
-		assertTrue(aux.get(0).contains("Boca"));
-		assertTrue(aux.get(0).contains("river"));
-		
-	}
-	
-	@Test
 	public void testArbitrosPrimeraFecha() {
+
 		Torneo t=new Torneo(crear4Equipos());
 		
 		AsignarArbitros.asignarArbitros(t);
