@@ -52,7 +52,7 @@ public class AsignarArbitrosTest {
 	}
 	
 	@Test
-	public void proArbitrosPrimeraFecha() {
+	public void testArbitrosPrimeraFecha() {
 		Torneo t=new Torneo(crear4Equipos());
 		
 		AsignarArbitros.asignarArbitros(t);
