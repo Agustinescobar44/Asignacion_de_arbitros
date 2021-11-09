@@ -14,21 +14,19 @@ public class Partido
 		this.equipo2 = equipo2;
 	}
 	
-	//Publico solo por tests.
 	public void setArbitro(int arbitro)
 	{
 		this.arbitro = arbitro;
 	}
 
-	//A revisar por temas de encapsulamiento.
 	public String getEquipo1()
 	{
-		return this.equipo1;
+		return new String(this.equipo1);
 	}
 	
 	public String getEquipo2()
 	{
-		return this.equipo2;
+		return new String(this.equipo2);
 	}
 	
 	public int getArbitro()
