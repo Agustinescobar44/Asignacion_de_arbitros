@@ -1,7 +1,6 @@
 package interfaz;
 
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -12,6 +11,9 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 
 import estructuraDeDatos.Torneo;
+import metodos.AsignarArbitros;
+import metodos.Jsons;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -24,7 +26,7 @@ import java.awt.event.MouseEvent;
 import java.awt.GridLayout;
 
 
-public class Main {
+public class VentanaPrincipal {
 
 	private JFrame frame;
 	final JScrollPane scrollPane;
@@ -34,36 +36,11 @@ public class Main {
 	private ArrayList<JComponent> asignacionDenombresUI = new ArrayList<>();
 	private JPanel panelDeAsignacion = new JPanel();
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Main window = new Main();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
-	public Main() {
-		this.scrollPane = new JScrollPane();
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
+	public VentanaPrincipal(String nombreJson) {
 		//variables--------------
-		final Torneo torneo=Principal.devolverTorneo();
+		this.scrollPane = new JScrollPane();
+		final Torneo torneo=Jsons.leerTorneoDeJson(nombreJson);
+		AsignarArbitros.asignarArbitros(torneo);
 		final String[] nombres = new String[torneo.getCantFechas()/2+1];
 		
 		inicializarNombresArbitros(nombres);
@@ -291,5 +268,8 @@ public class Main {
 			}
 		});
 	}
-
+	public void setVisible() {
+		frame.setVisible(true);
+	}
+	
 }

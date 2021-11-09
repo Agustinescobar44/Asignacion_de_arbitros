@@ -1,33 +1,23 @@
 package interfaz;
 
 import estructuraDeDatos.Torneo;
-import metodos.AsignarArbitros;
 import metodos.Jsons;
 
 public class Principal {
-	
-
-	
-	static Torneo devolverTorneo() {
-		Torneo t = Jsons.leerTorneoDeJson("prueba");
-		AsignarArbitros.asignarArbitros(t);
-		//System.out.println(t);
-		return t;
-	}
-
 	public static void main(String[] args) {
 		
-		String[] diezEquipos = crear10Equipos();
-		String[] cuatroEquipos = crear4Equipos();
-		String[] diezYSeisEquipos = crear16Equipos();
-
-		Torneo torneoDe16 = new Torneo(diezYSeisEquipos);
-		Torneo torneoDe10 = new Torneo(diezEquipos);
-		Torneo torneoDe4 = new Torneo(cuatroEquipos);
-		Jsons.generarJSON("Torneo con 16 equipos", torneoDe16);
-		Jsons.generarJSON("Torneo con 10 equipos", torneoDe10);
-		Jsons.generarJSON("Torneo con 4 equipos", torneoDe4);
+		generarJsonDelTorneo(crear16Equipos() , "Torneo con 16 equipos");
+		generarJsonDelTorneo(crear10Equipos() , "Torneo con 10 equipos");
+		generarJsonDelTorneo(crear4Equipos() , "Torneo con 4 equipos");
+		
+		VentanaPrincipal ventanaPrincipal = new VentanaPrincipal("Torneo con 10 equipos");
+		ventanaPrincipal.setVisible();
 	
+	}
+	
+	private static void generarJsonDelTorneo(String[] equipos , String nombreJson) {
+		Torneo t = new Torneo(equipos);
+		Jsons.generarJSON(nombreJson, t);
 	}
 	
 	private static String[] crear10Equipos() {
