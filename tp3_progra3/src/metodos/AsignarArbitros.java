@@ -44,9 +44,7 @@ public class AsignarArbitros {
 		}
 	}
 	
-	/*le asigno un arbitro al partido, que no haya sido marcado antes
-		aca es donde va la logica y lo que hay que pensar en grupo 
-	*/
+	//le asigno un arbitro al partido, que no haya sido marcado antes 
 	private static void asignarArbitroAPartido(Partido partido,Set<Integer> arbitrosMarcados, Torneo t) {
 		String equipoa = partido.getEquipo1();
 		String equipob = partido.getEquipo2();
