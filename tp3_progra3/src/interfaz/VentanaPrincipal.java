@@ -25,7 +25,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.GridLayout;
 
-
 public class VentanaPrincipal {
 
 	private JFrame frame;

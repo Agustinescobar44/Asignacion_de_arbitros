@@ -5,16 +5,10 @@ import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
-
-import estructuraDeDatos.Fecha;
-import estructuraDeDatos.Partido;
-import estructuraDeDatos.Torneo;
-
 import javax.swing.JTable;
 import javax.swing.SpinnerListModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
-
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.Color;
@@ -24,6 +18,9 @@ import java.awt.Font;
 import javax.swing.JSpinner;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.LineBorder;
+import estructuraDeDatos.Fecha;
+import estructuraDeDatos.Partido;
+import estructuraDeDatos.Torneo;
 
 public class PartidosDeFecha {
 

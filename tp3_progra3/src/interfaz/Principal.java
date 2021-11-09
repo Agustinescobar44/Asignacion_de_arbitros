@@ -23,10 +23,12 @@ public class Principal {
 	private static String[] crear10Equipos() {
 		return new String[]{"Boca", "River", "Independiente", "Racing", "San Lorenzo", "Huracan", "Central", "Newells", "Gimnasia", "Estudiantes"};
 	}
+	
 	private static String[] crear16Equipos() {
 		return new String[]{"Boca", "River", "Independiente", "Racing", "San Lorenzo", "Huracan", "Central", "Newells", "Gimnasia", "Estudiantes"
 				, "Colon", "Union", "Los pumas", "San Miguel", "Talleres" , "Sacachispas"};
 	}
+	
 	private static String[] crear4Equipos() {
 		return new String[]{"Boca", "River", "Independiente", "Racing"};
 	}

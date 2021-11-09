@@ -4,9 +4,7 @@ import java.awt.Frame;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
-
 import estructuraDeDatos.Torneo;
-
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.Map;
@@ -14,7 +12,6 @@ import java.util.Set;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.table.JTableHeader;
-
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
